@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HeroCarousel } from "@/components/HeroCarousel";
 import { LeadForm } from "@/components/LeadForm";
 import { PropertySearch } from "@/components/PropertySearch";
 import { services } from "@/lib/services";
@@ -51,63 +52,7 @@ const quotes = [
 export default function Home() {
   return (
     <>
-      <section className="relative isolate min-h-[92vh] overflow-hidden text-cream">
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2000&q=80"
-        >
-          <source
-            src="https://videos.pexels.com/video-files/2098989/2098989-uhd_2560_1440_30fps.mp4"
-            type="video/mp4"
-          />
-        </video>
-        <div className="absolute inset-0 bg-navy/70" />
-        <div className="relative mx-auto flex min-h-[92vh] max-w-6xl flex-col justify-end px-4 pb-20 pt-28 sm:px-6">
-          <p className="text-sm tracking-[0.25em] text-gold uppercase">
-            Land & property, held in trust
-          </p>
-          <h1 className="mt-4 max-w-3xl font-serif text-4xl leading-tight sm:text-6xl">
-            Secure the land. Transfer what your ancestors left.
-          </h1>
-          <p className="mt-5 max-w-xl text-lg text-cream/85">
-            Encroachment, repairs, or paperwork — handled, and reported back in
-            plain language. Under transfer, we stay until the name on the record
-            matches the family.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/contact"
-              className="rounded-full bg-green px-6 py-3 text-sm font-medium text-white hover:bg-green-light"
-            >
-              Get Started
-            </Link>
-            <Link
-              href="/properties"
-              className="rounded-full border border-cream/40 px-6 py-3 text-sm font-medium hover:bg-white/10"
-            >
-              Search Properties
-            </Link>
-          </div>
-          <div className="mt-10 grid max-w-2xl gap-4 sm:grid-cols-2">
-            <div className="rounded-xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm">
-              <p className="font-serif text-xl">Property Security</p>
-              <p className="mt-1 text-sm text-cream/80">
-                Watch the plot when you cannot be there.
-              </p>
-            </div>
-            <div className="rounded-xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm">
-              <p className="font-serif text-xl">Land Transfer</p>
-              <p className="mt-1 text-sm text-cream/80">
-                Ancestral papers, mutations, and a clean handoff.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroCarousel />
 
       <PropertySearch />
 

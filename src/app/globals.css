@@ -40,3 +40,28 @@ h3,
 .font-serif {
   font-family: var(--font-serif), Georgia, serif;
 }
+
+@keyframes kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.07);
+  }
+}
+
+.hero-land {
+  animation: kenburns 32s ease-in-out alternate infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-land {
+    animation: none;
+  }
+}
+
+@keyframes rec-pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
