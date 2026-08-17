@@ -3,8 +3,10 @@ import { DM_Sans } from "next/font/google";
 import { ChatBot } from "@/components/ChatBot";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { JsonLd } from "@/components/JsonLd";
 import { PwaRegister } from "@/components/PwaRegister";
 import { WhatsAppFab } from "@/components/WhatsAppButton";
+import { seo, siteGraph } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -16,25 +18,40 @@ const dm = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Your Bhoomi — Your man in the city for the land you left behind",
+    default: seo.homeTitle,
     template: "%s | Your Bhoomi",
   },
-  description:
-    "Property management for NRIs and city families. An ID-verified local person watches, manages, transfers, and keeps your land in India compliant — reported on WhatsApp in plain language.",
+  description: seo.homeDescription,
   applicationName: site.name,
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  publisher: site.name,
+  category: "NRI property management",
+  keywords: seo.keywords,
   appleWebApp: { capable: true, statusBarStyle: "default", title: site.name },
   openGraph: {
-    title: "Your Bhoomi — Your man in the city",
-    description:
-      "Watch, manage, transact, and comply. Property care in India for families abroad.",
-    url: site.url,
+    title: seo.homeTitle,
+    description: seo.homeDescription,
     siteName: site.name,
     locale: "en_IN",
     type: "website",
   },
-  twitter: { card: "summary_large_image" },
-  robots: { index: true, follow: true },
-  alternates: { canonical: "/" },
+  twitter: {
+    card: "summary_large_image",
+    title: seo.homeTitle,
+    description: seo.homeDescription,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export const viewport: Viewport = {
@@ -43,27 +60,21 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: site.name,
-  description:
-    "Land security, property management and ancestral transfer services in India for NRIs.",
-  url: site.url,
-  areaServed: "IN",
-  telephone: site.phone,
-};
-
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en-IN" className={`${dm.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-paper text-ink">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <JsonLd data={siteGraph()} />
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-stamp focus:px-3 focus:py-2 focus:text-white"
+        >
+          Skip to content
+        </a>
         <Header />
-        <main className="flex-1 pt-16">{children}</main>
+        <main id="main" className="flex-1 pt-16">
+          {children}
+        </main>
         <Footer />
         <WhatsAppFab />
         <ChatBot />

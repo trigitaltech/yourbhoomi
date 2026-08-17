@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Your Bhoomi — Your man in the city for the land you left behind";
+export const alt = "Your Bhoomi — NRI property care in India for ancestral land";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -26,10 +26,10 @@ export default function OgImage() {
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           <span style={{ fontSize: 64, fontWeight: 600, color: "#0e2a5c", lineHeight: 1.1 }}>
-            Your man in the city, for the land you left behind.
+            Your man in India for the ancestral land you left behind.
           </span>
           <span style={{ fontSize: 30, color: "#5f6673" }}>
-            Property care in India for NRIs — watch, manage, transfer, comply.
+            NRI property care — watch, manage, transfer, comply.
           </span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 24, color: "#b3261e" }}>

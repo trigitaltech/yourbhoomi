@@ -1,16 +1,23 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PropertyCard } from "@/components/PropertyCard";
 import { SearchForm, type SearchQuery } from "@/components/SearchForm";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { filterProperties, properties } from "@/lib/properties";
-import Link from "next/link";
 import { comingSoonHref } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Rent & land listings",
+  title: "Land Under NRI Care in South India",
   description:
-    "Search land, farmhouses and ancestral properties Your Bhoomi watches, manages, and transfers across South India.",
+    "Ancestral land, farmhouses, and family homes Your Bhoomi watches and manages across Telangana, Andhra Pradesh, Tamil Nadu, and Karnataka.",
   alternates: { canonical: "/properties" },
+  openGraph: {
+    title: "Land Under NRI Care in South India",
+    description:
+      "Ancestral land, farmhouses, and family homes Your Bhoomi watches and manages across Telangana, Andhra Pradesh, Tamil Nadu, and Karnataka.",
+    url: "/properties",
+  },
 };
 
 const first = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) ?? "";
@@ -34,8 +41,14 @@ export default async function PropertiesPage({ searchParams }: PageProps<"/prope
 
   return (
     <div className="container section">
-      <p className="eyebrow">Rent &amp; land</p>
-      <h1 className="mt-2 text-2xl">Land we watch, manage, and transfer</h1>
+      <Breadcrumbs
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Land under watch", path: "/properties" },
+        ]}
+      />
+      <p className="eyebrow mt-6">Land under our watch</p>
+      <h1 className="mt-2 text-2xl">Ancestral land and homes we watch, manage, and transfer for NRIs</h1>
       <p className="mt-3 max-w-2xl text-ink-2">
         Every listing here is under a Your Bhoomi desk — verified on the ground,
         documents on file. Looking to buy, sell, or rent out?{" "}

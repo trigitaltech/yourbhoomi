@@ -11,14 +11,14 @@ export function Hero() {
     <section className="container section" aria-labelledby="hero-heading">
       <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_1fr]">
         <div>
-          <p className="eyebrow">For NRIs and city families</p>
+          <p className="eyebrow">NRI land services in India</p>
           <h1 id="hero-heading" className="mt-3 text-3xl">
-            Your man in the city, for the land you left behind.
+            Your man in India for the ancestral land you left behind.
           </h1>
           <p className="mt-5 max-w-xl text-lg text-ink-2">
-            An ID-verified local person who visits your plot, chases the
-            paperwork, and reports back on WhatsApp — in your language, in your
-            time zone.
+            Property care for NRIs in the US, UK, Gulf, and APAC. An ID-verified
+            local person watches your plot, clears mutation and transfer, and
+            reports on WhatsApp — so the land you inherited stays yours.
           </p>
           <div className="mt-8">
             <SearchForm />
@@ -36,8 +36,8 @@ export function Hero() {
             </div>
           </div>
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <WhatsAppButton message="Hi, I'm an NRI and want someone to look after my property in India.">
-              Talk to your man in the city
+            <WhatsAppButton message="Hi, I'm an NRI and want someone to look after my ancestral property in India.">
+              Talk to the NRI desk
             </WhatsAppButton>
             <p className="text-sm text-ink-2">
               Buying or selling?{" "}
@@ -55,7 +55,7 @@ export function Hero() {
         <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-rule">
           <Image
             src="/hero-guarded-land.png"
-            alt="A guarded, fenced plot with a caretaker's hut and a camera on the wall"
+            alt="Guarded ancestral plot in India with a caretaker hut — NRI land watch by Your Bhoomi"
             fill
             priority
             className="object-cover"

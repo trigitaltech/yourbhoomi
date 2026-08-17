@@ -31,6 +31,8 @@ const cols = [
       { href: "/about", label: "About" },
       { href: "/contact", label: "Contact" },
       { href: "/guides", label: "All guides" },
+      { href: "/privacy", label: "Privacy" },
+      { href: "/terms", label: "Terms" },
     ],
   },
 ];
@@ -42,7 +44,7 @@ export function Footer() {
         <div>
           <Logo />
           <p className="mt-3 max-w-xs leading-relaxed">
-            Your man in the city for the land you left behind. Watch, manage,
+            Trusted NRI partner for ancestral land in India. Watch, manage,
             transfer, and comply — reported on WhatsApp in plain language.
           </p>
           <p className="mt-4">

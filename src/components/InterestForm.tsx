@@ -45,16 +45,25 @@ export function InterestForm({ feature, label }: Props) {
 
   return (
     <form className="grid gap-3" onSubmit={handleSubmit}>
-      <input required name="name" placeholder="Full name" className="field" autoComplete="name" />
-      <input
-        required
-        type="tel"
-        name="phone"
-        placeholder="WhatsApp number (with country code)"
-        className="field"
-        autoComplete="tel"
-      />
-      <input type="email" name="email" placeholder="Email (optional)" className="field" autoComplete="email" />
+      <label className="grid gap-1">
+        <span className="sr-only">Full name</span>
+        <input required name="name" placeholder="Full name" className="field" autoComplete="name" />
+      </label>
+      <label className="grid gap-1">
+        <span className="sr-only">WhatsApp number</span>
+        <input
+          required
+          type="tel"
+          name="phone"
+          placeholder="WhatsApp number (with country code)"
+          className="field"
+          autoComplete="tel"
+        />
+      </label>
+      <label className="grid gap-1">
+        <span className="sr-only">Email (optional)</span>
+        <input type="email" name="email" placeholder="Email (optional)" className="field" autoComplete="email" />
+      </label>
       <button type="submit" className="btn btn-primary" disabled={status === "busy"}>
         {status === "busy" ? "Saving…" : `Notify me when ${label} launches`}
       </button>

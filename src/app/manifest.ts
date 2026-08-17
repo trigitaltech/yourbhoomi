@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Your Bhoomi — Your man in the city",
+    name: "Your Bhoomi — NRI land desk",
     short_name: "Your Bhoomi",
     description:
-      "Property care in India for NRIs: watch, manage, transfer, and comply — reported on WhatsApp.",
+      "NRI property care in India: watch ancestral land, manage, transfer, and comply — reported on WhatsApp.",
     id: "/",
     start_url: "/",
     scope: "/",

@@ -1,20 +1,33 @@
 import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { LeadForm } from "@/components/LeadForm";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact us",
+  title: "Contact — NRI Property Desk in Hyderabad",
   description:
-    "Contact Your Bhoomi on WhatsApp, phone, or email for land security, ancestral transfer, and NRI property care.",
+    "WhatsApp, phone, or email Your Bhoomi in Hyderabad for NRI land watch, ancestral transfer, mutation, and property care in India.",
   alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact Your Bhoomi — NRI Property Desk",
+    description:
+      "WhatsApp, phone, or email Your Bhoomi in Hyderabad for NRI land watch, ancestral transfer, mutation, and property care in India.",
+    url: "/contact",
+  },
 };
 
 export default function ContactPage() {
   return (
     <div className="container section">
-      <p className="eyebrow">Contact us</p>
-      <h1 className="mt-3 text-2xl">Write to the desk that watches your land</h1>
+      <Breadcrumbs
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ]}
+      />
+      <p className="eyebrow mt-6">Contact us</p>
+      <h1 className="mt-3 text-2xl">Write to the NRI desk that watches your land</h1>
       <p className="mt-4 max-w-2xl text-ink-2">
         WhatsApp is fastest. One thread, one advisor, plain language back.
       </p>

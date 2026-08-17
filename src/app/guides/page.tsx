@@ -1,19 +1,32 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { guides } from "@/lib/guides";
 
 export const metadata: Metadata = {
-  title: "Guides for NRI property owners",
+  title: "NRI Property Guides — POA, Mutation, Transfer",
   description:
-    "Plain-language guides on Power of Attorney, mutation, ancestral transfer, encroachment, selling and repatriation, and the annual compliance calendar.",
+    "Plain-language NRI guides on Power of Attorney, mutation, ancestral transfer, encroachment, selling from India, repatriation, and the annual compliance calendar.",
   alternates: { canonical: "/guides" },
+  openGraph: {
+    title: "NRI Property Guides — POA, Mutation, Transfer",
+    description:
+      "Plain-language NRI guides on Power of Attorney, mutation, ancestral transfer, encroachment, selling from India, repatriation, and the annual compliance calendar.",
+    url: "/guides",
+  },
 };
 
 export default function GuidesPage() {
   return (
     <div className="container section">
-      <p className="eyebrow">Guides</p>
-      <h1 className="mt-3 text-2xl">Plain-language guides for owning land from abroad</h1>
+      <Breadcrumbs
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Guides", path: "/guides" },
+        ]}
+      />
+      <p className="eyebrow mt-6">Guides</p>
+      <h1 className="mt-3 text-2xl">NRI property guides: owning and transferring land in India from abroad</h1>
       <p className="mt-3 max-w-2xl text-ink-2">
         The questions every NRI family asks us, answered without file numbers.
         General information — not legal or tax advice.

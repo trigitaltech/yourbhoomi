@@ -18,7 +18,7 @@ export function NriDesk() {
         <div>
           <p className="eyebrow">NRI Desk</p>
           <h2 id="nri-heading" className="mt-3 text-2xl">
-            Built for the family that left the village — not the land
+            NRI desk: built for the family that left the village — not the land
           </h2>
           <p className="mt-4 text-ink-2">
             Most of our families live in Dallas, London, Dubai, or Singapore and

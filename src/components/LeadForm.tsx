@@ -24,37 +24,52 @@ export function LeadForm({ variant }: { variant: "tour" | "waitlist" | "contact"
         setSent(true);
       }}
     >
-      <input required name="name" placeholder="Full name" className="field" autoComplete="name" />
-      <input
-        required
-        type="email"
-        name="email"
-        placeholder="Email"
-        className="field"
-        autoComplete="email"
-      />
-      <input
-        required
-        type="tel"
-        name="phone"
-        placeholder="WhatsApp number (with country code)"
-        className="field"
-        autoComplete="tel"
-      />
+      <label className="grid gap-1 text-sm">
+        <span className="sr-only">Full name</span>
+        <input required name="name" placeholder="Full name" className="field" autoComplete="name" />
+      </label>
+      <label className="grid gap-1 text-sm">
+        <span className="sr-only">Email</span>
+        <input
+          required
+          type="email"
+          name="email"
+          placeholder="Email"
+          className="field"
+          autoComplete="email"
+        />
+      </label>
+      <label className="grid gap-1 text-sm">
+        <span className="sr-only">WhatsApp number</span>
+        <input
+          required
+          type="tel"
+          name="phone"
+          placeholder="WhatsApp number (with country code)"
+          className="field"
+          autoComplete="tel"
+        />
+      </label>
       {(variant === "waitlist" || variant === "contact") && (
-        <input required name="city" placeholder="Where is the property?" className="field" />
+        <label className="grid gap-1 text-sm">
+          <span className="sr-only">Where is the property?</span>
+          <input required name="city" placeholder="Where is the property?" className="field" />
+        </label>
       )}
       {variant !== "waitlist" && (
-        <textarea
-          name="message"
-          rows={4}
-          placeholder={
-            variant === "tour"
-              ? "Property address and a good time for a visit"
-              : "What worries you most — watch, repairs, transfer, or records?"
-          }
-          className="field"
-        />
+        <label className="grid gap-1 text-sm">
+          <span className="sr-only">Message</span>
+          <textarea
+            name="message"
+            rows={4}
+            placeholder={
+              variant === "tour"
+                ? "Property address and a good time for a visit"
+                : "What worries you most — watch, repairs, transfer, or records?"
+            }
+            className="field"
+          />
+        </label>
       )}
       <button type="submit" className="btn btn-primary">
         {variant === "waitlist" ? "Notify me" : variant === "tour" ? "Request a visit" : "Send message"}

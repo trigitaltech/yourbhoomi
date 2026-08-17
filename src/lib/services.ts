@@ -2,6 +2,9 @@ export const services = [
   {
     slug: "watch",
     name: "Bhoomi Watch",
+    seoTitle: "NRI Land Watch in India",
+    seoDescription:
+      "Scheduled visits, dated photos, and same-day encroachment alerts for vacant and ancestral land in India — reported on WhatsApp.",
     short:
       "Encroachment, boundary drift, and vacant-land visits. Photo and video proof on the schedule you set.",
     hero: "Eyes on the plot when you cannot be there.",
@@ -16,6 +19,9 @@ export const services = [
   {
     slug: "manage",
     name: "Bhoomi Manage",
+    seoTitle: "NRI Property Management in India",
+    seoDescription:
+      "Repairs, caretakers, and tenant coordination for NRI homes and land in India, with quotes and photo proof you approve from abroad.",
     short:
       "Repairs, caretakers, tenants, and seasonal work — handled locally, reported in plain language.",
     hero: "Repairs and caretakers, without flying home.",
@@ -30,6 +36,9 @@ export const services = [
   {
     slug: "transact",
     name: "Bhoomi Transact",
+    seoTitle: "Ancestral Property Transfer in India",
+    seoDescription:
+      "Gift, partition, sale, and succession for NRI families. We assemble the file, stand at the registrar, and explain every stamp in plain language.",
     short:
       "Ancestral transfer, sale, gift, and partition. We stand with you through the paperwork, not just the plot.",
     hero: "Transfer until the name on the record matches the family.",
@@ -44,6 +53,9 @@ export const services = [
   {
     slug: "comply",
     name: "Bhoomi Comply",
+    seoTitle: "NRI Land Records, Mutation & Tax",
+    seoDescription:
+      "Mutation, Pahani, property tax, and encumbrance certificates kept current so the next generation inherits a clean file.",
     short:
       "Records, mutations, tax, and survey maps kept current so the next generation inherits a clean file.",
     hero: "A clean file for the next generation.",

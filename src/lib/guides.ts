@@ -3,6 +3,7 @@ export type Guide = {
   title: string;
   summary: string;
   readMinutes: number;
+  published: string;
   sections: { heading: string; body: string[] }[];
   checklist: string[];
 };
@@ -14,6 +15,7 @@ export const guides: Guide[] = [
     summary:
       "How a Special Power of Attorney lets a trusted person act for you in India — what it can and cannot do, and how to execute one from overseas.",
     readMinutes: 6,
+    published: "2026-08-01",
     sections: [
       {
         heading: "Why NRIs need a POA",
@@ -50,6 +52,7 @@ export const guides: Guide[] = [
     summary:
       "Owning the sale deed is not enough. Learn what mutation is, why NRIs discover 20-year-old gaps, and how to fix them.",
     readMinutes: 5,
+    published: "2026-08-01",
     sections: [
       {
         heading: "Deed vs. record",
@@ -84,6 +87,7 @@ export const guides: Guide[] = [
     summary:
       "Gift, will, partition, or succession — which route fits your family, what it costs, and how to keep siblings aligned.",
     readMinutes: 7,
+    published: "2026-08-01",
     sections: [
       {
         heading: "Four routes",
@@ -118,6 +122,7 @@ export const guides: Guide[] = [
     summary:
       "The most common NRI loss is slow: a neighbour's fence that moves a metre a year. Here is how to watch, document, and respond.",
     readMinutes: 5,
+    published: "2026-08-01",
     sections: [
       {
         heading: "Why vacant land invites it",
@@ -152,6 +157,7 @@ export const guides: Guide[] = [
     summary:
       "TDS, capital gains, NRO accounts, and the Form 15CA/CB path — what to line up before you accept an offer.",
     readMinutes: 6,
+    published: "2026-08-01",
     sections: [
       {
         heading: "Before you list",
@@ -186,6 +192,7 @@ export const guides: Guide[] = [
     summary:
       "What is due when — property tax, water and electricity, tenant KYC, and the records to refresh every year so nothing lapses.",
     readMinutes: 4,
+    published: "2026-08-01",
     sections: [
       {
         heading: "Annual",

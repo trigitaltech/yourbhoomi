@@ -2,15 +2,22 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Faq } from "@/components/home/Faq";
 import { nriPoints } from "@/components/home/NriDesk";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { guides } from "@/lib/guides";
 import { services } from "@/lib/services";
 
 export const metadata: Metadata = {
-  title: "NRI Desk — property management in India for families abroad",
+  title: "NRI Desk — Property Management in India from Abroad",
   description:
-    "Watch, manage, transfer, and keep compliant the land you own in India — from the US, UK, Gulf, or APAC. POA help, video proof, bilingual summaries, and repatriation support.",
+    "Watch, manage, and transfer ancestral land in India from the US, UK, Gulf, or APAC. POA help, video proof, bilingual summaries, and repatriation support.",
   alternates: { canonical: "/nri" },
+  openGraph: {
+    title: "NRI Desk — Property Management in India from Abroad",
+    description:
+      "Watch, manage, and transfer ancestral land in India from the US, UK, Gulf, or APAC. POA help, video proof, bilingual summaries, and repatriation support.",
+    url: "/nri",
+  },
 };
 
 const zones = [
@@ -24,9 +31,15 @@ export default function NriPage() {
   return (
     <>
       <section className="container section">
-        <p className="eyebrow">NRI Desk</p>
+        <Breadcrumbs
+          items={[
+            { name: "Home", path: "/" },
+            { name: "NRI Desk", path: "/nri" },
+          ]}
+        />
+        <p className="eyebrow mt-6">NRI Desk</p>
         <h1 className="mt-3 max-w-3xl text-3xl">
-          Own land in India. Live anywhere. Never wonder what is happening to it.
+          NRI property management in India — own land, live anywhere, never wonder what is happening to it.
         </h1>
         <p className="mt-5 max-w-2xl text-lg text-ink-2">
           One advisor, one verified local person, and one WhatsApp thread for
@@ -112,7 +125,7 @@ export default function NriPage() {
         </div>
       </section>
 
-      <Faq />
+      <Faq pagePath="/nri" />
     </>
   );
 }

@@ -11,7 +11,7 @@ export function PropertyCard({ p }: { p: Property }) {
       <div className="relative h-52">
         <Image
           src={p.image}
-          alt={p.title}
+          alt={`${p.title} in ${p.location}`}
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, 33vw"

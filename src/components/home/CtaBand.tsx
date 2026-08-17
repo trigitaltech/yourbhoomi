@@ -9,11 +9,12 @@ export function CtaBand() {
         <div>
           <p className="eyebrow">Get started</p>
           <h2 id="cta-heading" className="mt-3 text-2xl">
-            Talk to your man in the city
+            Talk to your NRI property desk
           </h2>
           <p className="mt-4 text-ink-2">
-            Tell us where the land is and what worries you. A real person
-            replies on WhatsApp within a working day — usually much sooner.
+            Tell us where the ancestral land is and what worries you — watch,
+            mutation, transfer, or records. A real person replies on WhatsApp
+            within a working day.
           </p>
           <div className="mt-6">
             <WhatsAppButton message="Hi Your Bhoomi, I'd like to talk about my property in India.">
