@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "openwa": "npx @open-wa/wa-automate -p 8080"
   },
   "dependencies": {
     "next": "16.3.1",

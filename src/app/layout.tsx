@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans } from "next/font/google";
+import { ChatBot } from "@/components/ChatBot";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { PwaRegister } from "@/components/PwaRegister";
@@ -65,6 +66,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1 pt-16">{children}</main>
         <Footer />
         <WhatsAppFab />
+        <ChatBot />
         <PwaRegister />
       </body>
     </html>

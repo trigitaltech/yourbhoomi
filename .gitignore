@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local lead capture + OpenWA browser profile / session dumps
+/data
+/.node-persist
+/_IGNORE_session
+open-wa-session*.json
