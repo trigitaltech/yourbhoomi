@@ -1,56 +1,84 @@
 import Link from "next/link";
+import { Logo } from "@/components/Logo";
+import { guides } from "@/lib/guides";
+import { services } from "@/lib/services";
+import { site } from "@/lib/site";
+
+const cols = [
+  {
+    title: "Buy · Sell · Rent",
+    links: [
+      { href: site.nipigeBuy, label: "Buy property", external: true },
+      { href: site.nipigeSell, label: "Sell property", external: true },
+      { href: "/properties", label: "Rent & land listings" },
+    ],
+  },
+  {
+    title: "Services",
+    links: services.map((s) => ({ href: `/services/${s.slug}`, label: s.name })),
+  },
+  {
+    title: "NRI guides",
+    links: [
+      { href: "/nri", label: "NRI Desk" },
+      ...guides.slice(0, 4).map((g) => ({ href: `/guides/${g.slug}`, label: g.title })),
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { href: "/about", label: "About" },
+      { href: "/contact", label: "Contact" },
+      { href: "/guides", label: "All guides" },
+    ],
+  },
+];
 
 export function Footer() {
   return (
-    <footer className="bg-navy text-cream/80">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
+    <footer className="border-t border-rule bg-paper-2 text-sm text-ink-2">
+      <div className="container grid gap-10 py-14 md:grid-cols-[1.4fr_repeat(4,1fr)]">
         <div>
-          <p className="font-serif text-2xl text-cream">
-            Your <span className="text-gold">Bhoomi</span>
+          <Logo />
+          <p className="mt-3 max-w-xs leading-relaxed">
+            Your man in the city for the land you left behind. Watch, manage,
+            transfer, and comply — reported on WhatsApp in plain language.
           </p>
-          <p className="mt-3 max-w-sm text-sm leading-relaxed">
-            Land security and ancestral transfer for families who live far from
-            the plot — but never far from the land.
-          </p>
-        </div>
-        <div className="text-sm">
-          <p className="font-medium text-cream">Visit</p>
-          <ul className="mt-3 space-y-2">
-            <li>
-              <Link href="/services/watch" className="hover:text-gold">
-                Bhoomi Watch
-              </Link>
-            </li>
-            <li>
-              <Link href="/properties" className="hover:text-gold">
-                Featured properties
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="hover:text-gold">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:text-gold">
-                Contact us
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="text-sm">
-          <p className="font-medium text-cream">Hyderabad HQ</p>
-          <p className="mt-3">
-            Banjara Hills, Hyderabad
+          <p className="mt-4">
+            {site.address}
             <br />
-            +91 40 4000 1200
+            <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="hover:text-stamp">
+              {site.phone}
+            </a>
             <br />
-            hello@yourbhoomi.in
+            <a href={`mailto:${site.email}`} className="hover:text-stamp">
+              {site.email}
+            </a>
           </p>
         </div>
+        {cols.map((c) => (
+          <div key={c.title}>
+            <p className="font-semibold text-ink">{c.title}</p>
+            <ul className="mt-3 space-y-2">
+              {c.links.map((l) => (
+                <li key={l.label}>
+                  {"external" in l && l.external ? (
+                    <a href={l.href} target="_blank" rel="noopener noreferrer" className="hover:text-stamp">
+                      {l.label}
+                    </a>
+                  ) : (
+                    <Link href={l.href} className="hover:text-stamp">
+                      {l.label}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
-      <p className="border-t border-white/10 py-4 text-center text-xs">
-        © {new Date().getFullYear()} Your Bhoomi. All rights reserved.
+      <p className="border-t border-rule py-4 text-center text-xs">
+        © {new Date().getFullYear()} {site.name}. Guides are general information, not legal or tax advice.
       </p>
     </footer>
   );

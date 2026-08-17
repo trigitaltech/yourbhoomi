@@ -2,68 +2,82 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { Logo } from "@/components/Logo";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { nav } from "@/lib/site";
 
-const links = [
-  { href: "/#services", label: "Services" },
-  { href: "/properties", label: "Properties" },
-  { href: "/#how", label: "How it works" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
+function NavLink({
+  item,
+  onClick,
+  className,
+}: {
+  item: (typeof nav)[number];
+  onClick?: () => void;
+  className: string;
+}) {
+  if (item.external) {
+    return (
+      <a
+        href={item.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={onClick}
+        className={className}
+      >
+        {item.label}
+      </a>
+    );
+  }
+  return (
+    <Link href={item.href} onClick={onClick} className={className}>
+      {item.label}
+    </Link>
+  );
+}
 
 export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-navy/90 text-cream backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link href="/" className="font-serif text-xl tracking-tight">
-          Your <span className="text-gold">Bhoomi</span>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-rule bg-paper/95 backdrop-blur">
+      <div className="container flex h-16 items-center justify-between">
+        <Link href="/" aria-label="Your Bhoomi home">
+          <Logo />
         </Link>
-        <nav className="hidden items-center gap-7 text-sm md:flex">
-          {links.map((l) => (
-            <Link key={l.href} href={l.href} className="hover:text-gold">
-              {l.label}
-            </Link>
+        <nav className="hidden items-center gap-6 text-sm text-ink lg:flex" aria-label="Main">
+          {nav.map((l) => (
+            <NavLink key={l.label} item={l} className="hover:text-stamp" />
           ))}
-          <Link
-            href="/contact"
-            className="rounded-full bg-green px-4 py-2 font-medium text-white hover:bg-green-light"
-          >
-            Get Started
-          </Link>
+          <WhatsAppButton className="!py-2">WhatsApp</WhatsAppButton>
         </nav>
         <button
           type="button"
-          className="rounded-md p-2 md:hidden"
+          className="rounded-md p-2 lg:hidden"
           aria-expanded={open}
+          aria-controls="mobile-nav"
           aria-label="Menu"
           onClick={() => setOpen((v) => !v)}
         >
-          <span className="block h-0.5 w-6 bg-cream" />
-          <span className="mt-1.5 block h-0.5 w-6 bg-cream" />
-          <span className="mt-1.5 block h-0.5 w-6 bg-cream" />
+          <span className="block h-0.5 w-6 bg-ink" />
+          <span className="mt-1.5 block h-0.5 w-6 bg-ink" />
+          <span className="mt-1.5 block h-0.5 w-6 bg-ink" />
         </button>
       </div>
       {open && (
-        <nav className="flex flex-col gap-3 border-t border-white/10 px-4 py-4 md:hidden">
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
+        <nav
+          id="mobile-nav"
+          className="flex flex-col gap-1 border-t border-rule bg-paper px-4 py-4 lg:hidden"
+          aria-label="Mobile"
+        >
+          {nav.map((l) => (
+            <NavLink
+              key={l.label}
+              item={l}
               onClick={() => setOpen(false)}
-              className="py-1"
-            >
-              {l.label}
-            </Link>
+              className="rounded-md px-2 py-2 hover:bg-paper-2"
+            />
           ))}
-          <Link
-            href="/contact"
-            onClick={() => setOpen(false)}
-            className="rounded-full bg-green px-4 py-2 text-center text-white"
-          >
-            Get Started
-          </Link>
+          <WhatsAppButton className="mt-3">Chat on WhatsApp</WhatsAppButton>
         </nav>
       )}
     </header>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
   title: "About us",
@@ -11,36 +11,32 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 pt-28 pb-20 sm:px-6">
-      <p className="text-sm tracking-widest text-green uppercase">About us</p>
-      <h1 className="mt-2 font-serif text-4xl text-navy">
-        Built for families who left the village — not the land
-      </h1>
-      <div className="relative mt-8 h-64 overflow-hidden rounded-2xl">
+    <div className="container section max-w-3xl">
+      <p className="eyebrow">About us</p>
+      <h1 className="mt-3 text-2xl">Built for families who left the village — not the land</h1>
+      <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl border border-rule">
         <Image
-          src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1200&q=80"
-          alt="Terraced farmland"
+          src="/slide-farmhouse.png"
+          alt="A farmhouse being built on a family plot"
           fill
           className="object-cover"
+          sizes="(max-width: 768px) 100vw, 768px"
         />
       </div>
-      <p className="mt-8 leading-relaxed text-muted">
+      <p className="mt-8 text-ink-2">
         Your Bhoomi is a land and property desk for NRIs and city families. We
-        pair local, ID-checked partners with a single advisor who speaks in
-        sentences, not file numbers. Security of the soil. Dignity of the
-        transfer.
+        pair local, ID-checked partners — your man in the city — with a single
+        advisor who speaks in sentences, not file numbers. Security of the
+        soil. Dignity of the transfer.
       </p>
-      <p className="mt-4 leading-relaxed text-muted">
+      <p className="mt-4 text-ink-2">
         Encroachment, repairs, or paperwork — handled, and reported back in
-        plain language. Under transfer, we stay until the name on the record
-        matches the family.
+        plain language on WhatsApp. Under transfer, we stay until the name on
+        the record matches the family.
       </p>
-      <Link
-        href="/contact"
-        className="mt-8 inline-block rounded-full bg-green px-6 py-3 text-sm text-white"
-      >
-        Get Started
-      </Link>
+      <div className="mt-8">
+        <WhatsAppButton>Talk to us</WhatsAppButton>
+      </div>
     </div>
   );
 }

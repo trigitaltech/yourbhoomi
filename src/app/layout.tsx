@@ -1,7 +1,10 @@
-import type { Metadata } from "next";
-import { DM_Sans, Source_Serif_4 } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { DM_Sans } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { PwaRegister } from "@/components/PwaRegister";
+import { WhatsAppFab } from "@/components/WhatsAppButton";
+import { site } from "@/lib/site";
 import "./globals.css";
 
 const dm = DM_Sans({
@@ -9,27 +12,22 @@ const dm = DM_Sans({
   subsets: ["latin"],
 });
 
-const serif = Source_Serif_4({
-  variable: "--font-serif",
-  subsets: ["latin"],
-});
-
-const site = "https://yourbhoomi.in";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(site),
+  metadataBase: new URL(site.url),
   title: {
-    default: "Your Bhoomi — Land security & ancestral transfer",
+    default: "Your Bhoomi — Your man in the city for the land you left behind",
     template: "%s | Your Bhoomi",
   },
   description:
-    "Premium land and property management for families securing ancestral land. Encroachment, repairs, paperwork, and transfer — handled and reported in plain language.",
+    "Property management for NRIs and city families. An ID-verified local person watches, manages, transfers, and keeps your land in India compliant — reported on WhatsApp in plain language.",
+  applicationName: site.name,
+  appleWebApp: { capable: true, statusBarStyle: "default", title: site.name },
   openGraph: {
-    title: "Your Bhoomi — Land security & ancestral transfer",
+    title: "Your Bhoomi — Your man in the city",
     description:
-      "Watch, manage, transact, and comply. Property security and land transfer from your inbox to the plot.",
-    url: site,
-    siteName: "Your Bhoomi",
+      "Watch, manage, transact, and comply. Property care in India for families abroad.",
+    url: site.url,
+    siteName: site.name,
     locale: "en_IN",
     type: "website",
   },
@@ -38,33 +36,36 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#0e2a5c",
+  width: "device-width",
+  initialScale: 1,
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: "Your Bhoomi",
+  name: site.name,
   description:
-    "Land security and ancestral property transfer services in India.",
-  url: site,
+    "Land security, property management and ancestral transfer services in India for NRIs.",
+  url: site.url,
   areaServed: "IN",
-  telephone: "+91-40-4000-1200",
+  telephone: site.phone,
 };
 
-export default function RootLayout({
-  children,
-}: LayoutProps<"/">) {
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en-IN"
-      className={`${dm.variable} ${serif.variable} h-full antialiased`}
-    >
-      <body className="flex min-h-full flex-col bg-cream text-ink">
+    <html lang="en-IN" className={`${dm.variable} h-full antialiased`}>
+      <body className="flex min-h-full flex-col bg-paper text-ink">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pt-16">{children}</main>
         <Footer />
+        <WhatsAppFab />
+        <PwaRegister />
       </body>
     </html>
   );
