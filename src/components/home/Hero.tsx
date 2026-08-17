@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SearchForm } from "@/components/SearchForm";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { site } from "@/lib/site";
+import { comingSoonHref } from "@/lib/site";
 
 const chips = ["Farmland", "Plot", "Ancestral", "House"];
 
@@ -41,14 +41,14 @@ export function Hero() {
             </WhatsAppButton>
             <p className="text-sm text-ink-2">
               Buying or selling?{" "}
-              <a href={site.nipigeBuy} className="text-stamp underline" target="_blank" rel="noopener noreferrer">
+              <Link href={comingSoonHref("buy")} className="text-stamp underline">
                 Buy
-              </a>{" "}
+              </Link>{" "}
               ·{" "}
-              <a href={site.nipigeSell} className="text-stamp underline" target="_blank" rel="noopener noreferrer">
+              <Link href={comingSoonHref("sell")} className="text-stamp underline">
                 Sell
-              </a>{" "}
-              on Nipige
+              </Link>{" "}
+              — coming soon, get notified
             </p>
           </div>
         </div>

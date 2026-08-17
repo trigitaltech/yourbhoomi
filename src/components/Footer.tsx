@@ -2,15 +2,16 @@ import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { guides } from "@/lib/guides";
 import { services } from "@/lib/services";
-import { site } from "@/lib/site";
+import { comingSoonHref, site } from "@/lib/site";
 
 const cols = [
   {
     title: "Buy · Sell · Rent",
     links: [
-      { href: site.nipigeBuy, label: "Buy property", external: true },
-      { href: site.nipigeSell, label: "Sell property", external: true },
-      { href: "/properties", label: "Rent & land listings" },
+      { href: comingSoonHref("buy"), label: "Buy property" },
+      { href: comingSoonHref("sell"), label: "Sell property" },
+      { href: comingSoonHref("rent"), label: "Rent & land" },
+      { href: "/properties", label: "Properties under our watch" },
     ],
   },
   {
@@ -62,15 +63,9 @@ export function Footer() {
             <ul className="mt-3 space-y-2">
               {c.links.map((l) => (
                 <li key={l.label}>
-                  {"external" in l && l.external ? (
-                    <a href={l.href} target="_blank" rel="noopener noreferrer" className="hover:text-stamp">
-                      {l.label}
-                    </a>
-                  ) : (
-                    <Link href={l.href} className="hover:text-stamp">
-                      {l.label}
-                    </Link>
-                  )}
+                  <Link href={l.href} className="hover:text-stamp">
+                    {l.label}
+                  </Link>
                 </li>
               ))}
             </ul>

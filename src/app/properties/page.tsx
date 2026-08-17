@@ -3,7 +3,8 @@ import { PropertyCard } from "@/components/PropertyCard";
 import { SearchForm, type SearchQuery } from "@/components/SearchForm";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { filterProperties, properties } from "@/lib/properties";
-import { site } from "@/lib/site";
+import Link from "next/link";
+import { comingSoonHref } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Rent & land listings",
@@ -37,15 +38,19 @@ export default async function PropertiesPage({ searchParams }: PageProps<"/prope
       <h1 className="mt-2 text-2xl">Land we watch, manage, and transfer</h1>
       <p className="mt-3 max-w-2xl text-ink-2">
         Every listing here is under a Your Bhoomi desk — verified on the ground,
-        documents on file. Looking to buy or sell outright?{" "}
-        <a href={site.nipigeBuy} className="text-stamp underline" target="_blank" rel="noopener noreferrer">
-          Buy on Nipige
-        </a>{" "}
+        documents on file. Looking to buy, sell, or rent out?{" "}
+        <Link href={comingSoonHref("buy")} className="text-stamp underline">
+          Buy
+        </Link>{" "}
         ·{" "}
-        <a href={site.nipigeSell} className="text-stamp underline" target="_blank" rel="noopener noreferrer">
-          Sell on Nipige
-        </a>
-        .
+        <Link href={comingSoonHref("sell")} className="text-stamp underline">
+          Sell
+        </Link>{" "}
+        ·{" "}
+        <Link href={comingSoonHref("rent")} className="text-stamp underline">
+          Rent
+        </Link>{" "}
+        are coming soon — leave your details to be first to know.
       </p>
       <div className="card mt-8 p-4">
         <SearchForm values={values} compact />

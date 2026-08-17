@@ -15,19 +15,6 @@ function NavLink({
   onClick?: () => void;
   className: string;
 }) {
-  if (item.external) {
-    return (
-      <a
-        href={item.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={onClick}
-        className={className}
-      >
-        {item.label}
-      </a>
-    );
-  }
   return (
     <Link href={item.href} onClick={onClick} className={className}>
       {item.label}
