@@ -60,7 +60,7 @@ export default async function ComingSoonPage({ searchParams }: PageProps<"/comin
             </Link>
           </div>
         </div>
-        <div className="card p-6 md:p-8">
+        <div className="card self-start p-6 md:p-8">
           <h2 className="text-lg font-semibold text-stamp">Be first to know</h2>
           <p className="mt-1 text-sm text-ink-2">
             Leave your details and we will message you the day {f.label} launches.
