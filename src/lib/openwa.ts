@@ -4,18 +4,23 @@
 
 const TO = (process.env.OPENWA_TO ?? "917013870575").replace(/\D/g, "");
 
-export async function sendLeadToWhatsApp(lead: {
+export type Lead = {
   name: string;
   phone: string;
-  question: string;
-}) {
+  question?: string;
+  email?: string;
+  source?: string;
+};
+
+export async function sendLeadToWhatsApp(lead: Lead) {
   const base = process.env.OPENWA_API_URL;
   if (!base) throw new Error("OPENWA_API_URL is not set");
 
   const content = [
-    "New Your Bhoomi chat lead",
+    `New Your Bhoomi ${lead.source ?? "chat"} lead`,
     `Name: ${lead.name}`,
     `Phone: ${lead.phone}`,
+    lead.email ? `Email: ${lead.email}` : null,
     lead.question ? `Question: ${lead.question}` : null,
   ]
     .filter(Boolean)
