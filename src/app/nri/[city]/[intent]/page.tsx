@@ -49,8 +49,6 @@ export default async function IntentPage({ params }: PageProps<"/nri/[city]/[int
     speakable: { "@type": "SpeakableSpecification", cssSelector: ["#answer"] },
   };
 
-  const comingSoon = i.key === "buy" || i.key === "sell";
-
   return (
     <article className="container section max-w-3xl">
       <JsonLd data={jsonLd} />
@@ -71,7 +69,7 @@ export default async function IntentPage({ params }: PageProps<"/nri/[city]/[int
       </p>
       <div className="mt-6 flex flex-wrap gap-4">
         <WhatsAppButton message={i.ctaMessage}>Ask on WhatsApp</WhatsAppButton>
-        {comingSoon && (
+        {(i.key === "buy" || i.key === "sell") && (
           <Link href={comingSoonHref(i.key)} className="btn btn-outline">
             Get notified when the {i.label} desk launches
           </Link>
