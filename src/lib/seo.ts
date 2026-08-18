@@ -7,7 +7,14 @@ export const seo = {
   homeDescription:
     "Trusted NRI partner for land in India. Watch ancestral property, clear mutation and transfer, and get WhatsApp proof from a verified local person.",
   keywords: [
+    "NRI property management Hyderabad",
     "NRI property management India",
+    "NRI buying property in Hyderabad",
+    "NRI selling property in India TDS",
+    "Bhu Bharati NRI",
+    "mutation Telangana",
+    "encumbrance certificate Telangana",
+    "gift deed stamp duty Telangana",
     "ancestral property transfer",
     "NRI land services",
     "property watch India",
@@ -141,13 +148,13 @@ export function siteGraph() {
   };
 }
 
-export function faqPageJsonLd(url: string) {
+export function faqPageJsonLd(url: string, items: { q: string; a: string }[] = faqs) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "@id": `${url}#faq`,
     url,
-    mainEntity: faqs.map((f) => ({
+    mainEntity: items.map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },

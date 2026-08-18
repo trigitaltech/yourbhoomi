@@ -31,8 +31,6 @@ const cols = [
       { href: "/about", label: "About" },
       { href: "/contact", label: "Contact" },
       { href: "/guides", label: "All guides" },
-      { href: "/privacy", label: "Privacy" },
-      { href: "/terms", label: "Terms" },
     ],
   },
 ];
@@ -74,9 +72,25 @@ export function Footer() {
           </div>
         ))}
       </div>
-      <p className="border-t border-rule py-4 text-center text-xs">
-        © {new Date().getFullYear()} {site.name}. Guides are general information, not legal or tax advice.
-      </p>
+      <div className="border-t border-rule py-4 text-xs">
+        <div className="container flex flex-col items-center justify-between gap-3 sm:flex-row">
+          <p>
+            © {new Date().getFullYear()} {site.name}. Guides are general information, not legal
+            or tax advice.
+          </p>
+          <nav aria-label="Legal" className="flex flex-wrap justify-center gap-x-4 gap-y-1">
+            <Link href="/privacy" className="hover:text-stamp">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-stamp">
+              Terms and Conditions
+            </Link>
+            <Link href="/cookies" className="hover:text-stamp">
+              Cookie Policy
+            </Link>
+          </nav>
+        </div>
+      </div>
     </footer>
   );
 }

@@ -164,3 +164,14 @@ h3 {
     transition: none;
   }
 }
+
+html[data-cookie-banner] .whatsapp-fab,
+html[data-cookie-banner] .chat-fab {
+  bottom: 12.5rem;
+}
+@media (min-width: 640px) {
+  html[data-cookie-banner] .whatsapp-fab,
+  html[data-cookie-banner] .chat-fab {
+    bottom: 1.5rem;
+  }
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { LegalConsent } from "@/components/LegalConsent";
 
 const suggestedFaqs = [
   { label: "What does it cost?", q: "What does it cost?" },
@@ -99,7 +100,7 @@ export function ChatBot() {
         aria-expanded={open}
         aria-controls="faq-chat"
         onClick={() => setOpen((v) => !v)}
-        className="fixed right-20 bottom-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-stamp text-white shadow-card hover:bg-stamp-hover sm:right-24 sm:bottom-6"
+        className="chat-fab fixed right-20 bottom-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-stamp text-white shadow-card hover:bg-stamp-hover sm:right-24 sm:bottom-6"
         aria-label={open ? "Close FAQ chat" : "Open FAQ chat"}
       >
         {open ? (
@@ -191,6 +192,7 @@ export function ChatBot() {
                   autoComplete="tel"
                 />
                 {err && <p className="text-xs text-seal">{err}</p>}
+                <LegalConsent />
                 <button type="submit" className="btn btn-primary" disabled={busy}>
                   Send to advisor
                 </button>

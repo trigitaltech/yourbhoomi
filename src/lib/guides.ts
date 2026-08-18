@@ -1,3 +1,5 @@
+import { telanganaGuides } from "@/lib/guides-telangana";
+
 export type Guide = {
   slug: string;
   title: string;
@@ -8,7 +10,7 @@ export type Guide = {
   checklist: string[];
 };
 
-export const guides: Guide[] = [
+const coreGuides: Guide[] = [
   {
     slug: "power-of-attorney-for-nris",
     title: "Power of Attorney: managing property from abroad",
@@ -222,6 +224,8 @@ export const guides: Guide[] = [
     ],
   },
 ];
+
+export const guides: Guide[] = [...coreGuides, ...telanganaGuides];
 
 export function guideBySlug(slug: string) {
   return guides.find((g) => g.slug === slug);

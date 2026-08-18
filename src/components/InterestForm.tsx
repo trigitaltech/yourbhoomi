@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { LegalConsent } from "@/components/LegalConsent";
 import type { FeatureKey } from "@/lib/site";
 
 type Props = { feature: FeatureKey; label: string };
@@ -64,6 +65,7 @@ export function InterestForm({ feature, label }: Props) {
         <span className="sr-only">Email (optional)</span>
         <input type="email" name="email" placeholder="Email (optional)" className="field" autoComplete="email" />
       </label>
+      <LegalConsent />
       <button type="submit" className="btn btn-primary" disabled={status === "busy"}>
         {status === "busy" ? "Saving…" : `Notify me when ${label} launches`}
       </button>

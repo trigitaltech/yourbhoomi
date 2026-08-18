@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { guides } from "@/lib/guides";
+import { cities } from "@/lib/locations";
 import { properties } from "@/lib/properties";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
@@ -16,12 +17,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     page("", 1, "weekly"),
     page("/nri", 0.9, "weekly"),
+    ...cities.flatMap((c) => [
+      page(`/nri/${c.slug}`, 0.9, "weekly"),
+      ...c.intents.map((i) => page(`/nri/${c.slug}/${i.key}`, 0.85)),
+    ]),
+    page("/pricing", 0.8),
+    page("/compare", 0.7),
+    page("/faq", 0.8, "weekly"),
+    page("/glossary", 0.7),
     page("/properties", 0.9, "weekly"),
     page("/guides", 0.8),
     page("/about", 0.7),
     page("/contact", 0.8),
     page("/privacy", 0.3),
     page("/terms", 0.3),
+    page("/cookies", 0.3),
     ...services.map((s) => page(`/services/${s.slug}`, 0.8)),
     ...guides.map((g) => page(`/guides/${g.slug}`, 0.7)),
     ...properties.map((p) => page(`/properties/${p.slug}`, 0.6, "weekly")),

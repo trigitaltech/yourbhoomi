@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { LegalConsent } from "@/components/LegalConsent";
 
 // ponytail: no backend yet — success state only. Wire to an API route / CRM when one exists.
 export function LeadForm({ variant }: { variant: "tour" | "waitlist" | "contact" }) {
@@ -71,6 +72,7 @@ export function LeadForm({ variant }: { variant: "tour" | "waitlist" | "contact"
           />
         </label>
       )}
+      <LegalConsent />
       <button type="submit" className="btn btn-primary">
         {variant === "waitlist" ? "Notify me" : variant === "tour" ? "Request a visit" : "Send message"}
       </button>

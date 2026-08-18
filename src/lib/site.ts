@@ -49,10 +49,12 @@ export const comingSoonHref = (key: FeatureKey) => `/coming-soon?for=${key}`;
 
 export const nav = [
   { href: "/nri", label: "NRI Desk" },
+  { href: "/nri/hyderabad", label: "Hyderabad" },
   { href: "/services/watch", label: "Watch" },
   { href: "/services/manage", label: "Manage" },
   { href: "/services/transact", label: "Transfer" },
   { href: "/services/comply", label: "Comply" },
   { href: "/guides", label: "Guides" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/contact", label: "Contact" },
 ];
