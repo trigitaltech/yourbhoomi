@@ -16,6 +16,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
   return [
     page("", 1, "weekly"),
+    page("/land-security", 0.95, "weekly"),
+    page("/land-transfer", 0.95, "weekly"),
+    page("/land-risk-check", 0.85),
+    page("/transfer-readiness", 0.85),
+    page("/sample-report", 0.8),
+    page("/coverage", 0.8, "weekly"),
+    page("/nri-checklist", 0.75),
     page("/nri", 0.9, "weekly"),
     ...cities.flatMap((c) => [
       page(`/nri/${c.slug}`, 0.9, "weekly"),

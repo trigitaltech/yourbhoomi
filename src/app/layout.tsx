@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans } from "next/font/google";
+import { Analytics } from "@/components/Analytics";
 import { ChatBot } from "@/components/ChatBot";
 import { CookieBanner } from "@/components/CookieBanner";
 import { Footer } from "@/components/Footer";
@@ -81,6 +82,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ChatBot />
         <CookieBanner />
         <PwaRegister />
+        <Analytics />
       </body>
     </html>
   );

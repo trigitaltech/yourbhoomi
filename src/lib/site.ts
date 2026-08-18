@@ -1,7 +1,9 @@
 export const site = {
   name: "Your Bhoomi",
   legalName: "Your Bhoomi",
-  tagline: "Your man in India for the ancestral land you left behind",
+  tagline: "Your man in the city, for the land you left behind",
+  subline:
+    "Protect, monitor and transfer your land in India without flying home. Verified inspections, photo and video evidence, document support, transfer coordination and regular WhatsApp updates.",
   url: "https://yourbhoomi.com",
   email: "hello@yourbhoomi.com",
   phone: "+91 40 4000 1200",
@@ -48,13 +50,24 @@ export type FeatureKey = keyof typeof comingSoonFeatures;
 export const comingSoonHref = (key: FeatureKey) => `/coming-soon?for=${key}`;
 
 export const nav = [
-  { href: "/nri", label: "NRI Desk" },
-  { href: "/nri/hyderabad", label: "Hyderabad" },
-  { href: "/services/watch", label: "Watch" },
-  { href: "/services/manage", label: "Manage" },
-  { href: "/services/transact", label: "Transfer" },
-  { href: "/services/comply", label: "Comply" },
-  { href: "/guides", label: "Guides" },
+  { href: "/land-security", label: "Land Security" },
+  { href: "/land-transfer", label: "Land Transfer" },
+  { href: "/nri", label: "NRI Services" },
+  { href: "/#how", label: "How It Works" },
   { href: "/pricing", label: "Pricing" },
+  { href: "/guides", label: "Guides" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
+
+// Districts we currently serve, per state. Used by the coverage checker; anything else is "expanding".
+// ponytail: static list — move to a CMS/DB when the ops team edits it more than the dev team.
+export const coverageDistricts: Record<string, string[]> = {
+  Telangana: [
+    "Hyderabad", "Rangareddy", "Medchal-Malkajgiri", "Sangareddy", "Vikarabad", "Nalgonda", "Suryapet",
+    "Yadadri Bhuvanagiri", "Siddipet", "Medak", "Warangal", "Hanamkonda", "Karimnagar", "Khammam", "Nizamabad", "Mahabubnagar",
+  ],
+  "Andhra Pradesh": ["Guntur", "Krishna", "NTR", "Vijayawada", "Visakhapatnam", "West Godavari", "East Godavari", "Nellore", "Tirupati", "Kurnool", "Prakasam"],
+  Karnataka: ["Bengaluru Urban", "Bengaluru Rural", "Mysuru", "Mandya", "Tumakuru", "Hassan", "Ramanagara"],
+  "Tamil Nadu": ["Chennai", "Kancheepuram", "Chengalpattu", "Tiruvallur", "Coimbatore", "Madurai", "Tiruchirappalli", "Salem", "Vellore"],
+};

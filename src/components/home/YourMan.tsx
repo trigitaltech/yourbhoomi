@@ -2,54 +2,28 @@ import Image from "next/image";
 import Link from "next/link";
 import { services } from "@/lib/services";
 
-const compare = [
-  {
-    title: "Doing it yourself from abroad",
-    body: "Midnight calls to a cousin, a WhatsApp photo once a year, and a registrar queue you cannot stand in.",
-  },
-  {
-    title: "A no-broker portal",
-    body: "Great for a listing. But a portal does not walk your boundary, sit at the Tahsildar's office, or fix a leaking roof.",
-  },
-  {
-    title: "Your man in the city",
-    body: "A named, ID-verified local person on your side. Visits, quotes, filings, and proof — reported in plain language.",
-    highlight: true,
-  },
-];
-
 const thisWeek = [
-  "Walked the Nalgonda grove boundary — 12 dated photos",
-  "Collected two roof-repair quotes for the Mysuru house",
-  "Filed mutation follow-up at Warangal MRO office",
-  "Paid Guntur property tax; receipt sent on WhatsApp",
+  "Walked the Nalgonda grove boundary — 12 geo-tagged photos, no change since May",
+  "Filed mutation follow-up at Warangal MRO office; acknowledgement sent",
+  "Verified caretaker at the Guntur plot; fence post repair quoted",
+  "Paid Mysuru property tax; receipt filed in the family thread",
 ];
 
+const trust = ["Identity verified", "Background checked", "Same person on your file", "Local to your mandal"];
+
+// Field representative trust section. Sample activity is illustrative; no counts or ratings until real data exists.
 export function YourMan() {
   return (
-    <section id="services" className="container section" aria-labelledby="yourman-heading">
-      <p className="eyebrow">Not no-broker. Your broker, on your side.</p>
+    <section id="representative" className="container section" aria-labelledby="yourman-heading">
+      <p className="eyebrow">Your man in the city</p>
       <h2 id="yourman-heading" className="mt-3 max-w-2xl text-2xl">
-        Portals list property. We stand in for you where the property actually is.
+        A named, verified person on the ground — not a call centre
       </h2>
-
-      <div className="mt-10 grid gap-5 md:grid-cols-3">
-        {compare.map((c) => (
-          <div
-            key={c.title}
-            className={`card p-6 ${c.highlight ? "border-stamp bg-stamp-soft/40" : ""}`}
-          >
-            <h3 className="text-lg font-semibold text-stamp">{c.title}</h3>
-            <p className="mt-2 text-sm text-ink-2">{c.body}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-14 grid items-center gap-10 lg:grid-cols-2">
+      <div className="mt-10 grid items-center gap-10 lg:grid-cols-2">
         <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-rule">
           <Image
             src="/slide-security.png"
-            alt="A local caretaker at the gate of a plot"
+            alt="A Your Bhoomi field representative at the gate of a plot"
             fill
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"
@@ -59,13 +33,20 @@ export function YourMan() {
               RK
             </span>
             <div className="text-xs">
-              <p className="font-semibold text-ink">Ravi K. · Nalgonda</p>
-              <p className="text-ink-2">Aadhaar-verified · 3 yrs with us</p>
+              <p className="font-semibold text-ink">Ravi K. · Nalgonda belt</p>
+              <p className="text-ink-2">ID verified · Telugu, English</p>
             </div>
           </div>
         </div>
         <div>
-          <h3 className="text-xl font-semibold text-stamp">What your man did this week</h3>
+          <ul className="flex flex-wrap gap-2 text-xs">
+            {trust.map((t) => (
+              <li key={t} className="rounded-full bg-seal-soft px-3 py-1 font-medium text-seal">
+                {t}
+              </li>
+            ))}
+          </ul>
+          <h3 className="mt-6 text-xl font-semibold text-stamp">What a week on your file looks like</h3>
           <ul className="mt-4 space-y-3">
             {thisWeek.map((t) => (
               <li key={t} className="flex gap-3 text-ink-2">
@@ -75,21 +56,25 @@ export function YourMan() {
             ))}
           </ul>
           <p className="mt-6 text-sm text-ink-2">
-            Every visit ends with a plain-language note and photos on WhatsApp.
-            No file numbers. No jargon.
+            You get their name, photo and ID before the first visit. We never publish Aadhaar numbers or
+            personal addresses — of representatives or customers.
           </p>
         </div>
       </div>
-
-      <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {services.map((s) => (
-          <Link key={s.slug} href={`/services/${s.slug}`} className="card card-hover p-6">
-            <h3 className="text-lg font-semibold text-stamp">{s.name}</h3>
-            <p className="mt-2 text-sm text-ink-2">{s.short}</p>
-            <span className="mt-4 inline-block text-sm font-medium text-stamp">Learn more →</span>
-          </Link>
-        ))}
-      </div>
+      <p className="mt-10 text-sm text-ink-2">
+        Beyond security and transfer, the same desk handles{" "}
+        {services
+          .filter((s) => s.slug === "manage" || s.slug === "comply")
+          .map((s, i) => (
+            <span key={s.slug}>
+              {i > 0 && " and "}
+              <Link href={`/services/${s.slug}`} className="text-stamp underline">
+                {s.name.toLowerCase()}
+              </Link>
+            </span>
+          ))}
+        {" "}for homes, tenants and records.
+      </p>
     </section>
   );
 }

@@ -1,32 +1,32 @@
-const stats = [
-  { n: "100%", label: "ID-verified local partners" },
-  { n: "4", label: "states live: TS, AP, TN, KA" },
-  { n: "< 24 h", label: "response on WhatsApp" },
-  { n: "2×", label: "documented visits a year, minimum" },
-];
+import { site } from "@/lib/site";
 
-const cities = ["Dallas", "Bay Area", "London", "Dubai", "Singapore", "Sydney", "Toronto"];
+// Trust indicators only — no customer counts or ratings until there are real, verifiable numbers.
+const indicators = [
+  "ID-verified field representatives",
+  "Geo-tagged visit evidence",
+  "Photo & video reports",
+  "NRI friendly · calls in your time zone",
+  "WhatsApp updates after every visit",
+  "Transparent service tracking",
+];
 
 export function TrustBar() {
   return (
-    <section className="border-y border-rule bg-paper-2" aria-label="Trust">
-      <div className="container grid gap-8 py-10 lg:grid-cols-[1fr_auto] lg:items-center">
-        <dl className="grid grid-cols-2 gap-6 sm:grid-cols-4">
-          {stats.map((s) => (
-            <div key={s.label}>
-              <dt className="text-2xl font-semibold text-stamp">{s.n}</dt>
-              <dd className="mt-1 text-sm text-ink-2">{s.label}</dd>
-            </div>
+    <section className="border-y border-rule bg-paper-2" aria-label="Why families trust us">
+      <div className="container grid gap-6 py-8 lg:grid-cols-[auto_1fr] lg:items-center">
+        <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-seal-soft px-3 py-1 text-sm font-medium text-seal">
+          <span className="h-1.5 w-1.5 rounded-full bg-seal" /> Live in {site.coverage.length} states: {site.coverage.join(", ")}
+        </span>
+        <ul className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm text-ink sm:grid-cols-3">
+          {indicators.map((t) => (
+            <li key={t} className="flex gap-2">
+              <span className="text-seal" aria-hidden>
+                ✓
+              </span>
+              {t}
+            </li>
           ))}
-        </dl>
-        <div className="text-sm text-ink-2">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-seal-soft px-3 py-1 font-medium text-seal">
-            <span className="h-1.5 w-1.5 rounded-full bg-seal" /> Verified partners
-          </span>
-          <p className="mt-3 max-w-xs">
-            Families in {cities.join(", ")} already watch their land through us.
-          </p>
-        </div>
+        </ul>
       </div>
     </section>
   );

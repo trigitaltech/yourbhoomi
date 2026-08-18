@@ -20,11 +20,18 @@ Coverage: Telangana (Hyderabad — Rangareddy, Medchal–Malkajgiri, Sangareddy,
 export function llmsTxt() {
   return `${intro}
 ## Key pages
-- [Home](${u("/")}): NRI land services overview
+- [Home](${u("/")}): Land security and land transfer for NRIs — protect, monitor and transfer land in India without flying home
+- [Land Security](${u("/land-security")}): physical inspection, boundary and encroachment monitoring, geo-tagged photo/video reports, recurring visits
+- [Land Transfer](${u("/land-transfer")}): inheritance, gift, sale, partition, succession, mutation, POA and registration coordination
+- [Sample Security Report](${u("/sample-report")}): what every Bhoomi Security Report contains (anonymized sample)
+- [Free Land Risk Check](${u("/land-risk-check")}): 12 questions → Land Security Score with recommendations
+- [Transfer Readiness Check](${u("/transfer-readiness")}): document and heir readiness percentage for a transfer
+- [Coverage](${u("/coverage")}): districts served in Telangana, Andhra Pradesh, Karnataka, Tamil Nadu
+- [NRI Land Protection Checklist](${u("/nri-checklist")}): 25 checks every NRI landowner should perform
 - [NRI Desk](${u("/nri")}): time-zone hours, POA, repatriation, bilingual summaries
 ${cities.map((c) => `- [${c.name} desk](${u(`/nri/${c.slug}`)}): ${c.description}\n${c.intents.map((i) => `  - [${i.label} in ${c.name}](${u(`/nri/${c.slug}/${i.key}`)}): ${i.description}`).join("\n")}`).join("\n")}
 ${services.map((s) => `- [${s.name}](${u(`/services/${s.slug}`)}): ${s.seoDescription}`).join("\n")}
-- [Pricing](${u("/pricing")}): indicative INR ranges for watch, manage, comply, transact
+- [Pricing](${u("/pricing")}): One-Time Security Check, Bhoomi Watch, Bhoomi Protect+ and land transfer from ₹15,000 (indicative)
 - [Compare](${u("/compare")}): Your Bhoomi vs NoBroker vs relative vs DIY
 - [FAQ](${u("/faq")}): ${faqs.length} direct answers
 - [Glossary](${u("/glossary")}): ${glossary.length} land-record and NRI property terms

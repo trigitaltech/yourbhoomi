@@ -1,3 +1,6 @@
+"use client";
+
+import { track } from "@/lib/analytics";
 import { waLink } from "@/lib/site";
 
 function WaIcon({ className = "h-5 w-5" }: { className?: string }) {
@@ -8,20 +11,28 @@ function WaIcon({ className = "h-5 w-5" }: { className?: string }) {
   );
 }
 
+/**
+ * Context-specific WhatsApp CTA. `message` is pre-filled; `source` names the CTA for analytics
+ * and is appended to the message so the desk knows which page the enquiry came from.
+ */
 export function WhatsAppButton({
   message,
+  source,
   children = "Chat on WhatsApp",
   className = "",
 }: {
   message?: string;
+  source?: string;
   children?: React.ReactNode;
   className?: string;
 }) {
+  const text = message && source ? `${message}\n\n(via yourbhoomi.com · ${source})` : message;
   return (
     <a
-      href={waLink(message)}
+      href={waLink(text)}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => track("whatsapp_click", { source: source ?? "generic" })}
       className={`btn btn-whatsapp ${className}`}
     >
       <WaIcon />
@@ -36,6 +47,7 @@ export function WhatsAppFab() {
       href={waLink()}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => track("whatsapp_click", { source: "fab" })}
       aria-label="Chat with Your Bhoomi on WhatsApp"
       className="fixed right-4 bottom-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-card hover:bg-whatsapp-hover sm:right-6 sm:bottom-6 whatsapp-fab"
     >

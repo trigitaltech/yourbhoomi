@@ -58,7 +58,7 @@ export default function TermsPage() {
           </p>
         </section>
 
-        <section>
+        <section id="disclaimer">
           <h2 className="text-xl text-stamp">Not legal or tax advice</h2>
           <p className="mt-3">
             Guides, FAQs, checklists, pricing examples, and chat answers are
@@ -66,6 +66,15 @@ export default function TermsPage() {
             rules differ by state and change often. Confirm with a lawyer or
             chartered accountant before you act. We coordinate that work; we do
             not replace it.
+          </p>
+          <p className="mt-3">
+            Field inspections record what our representative could observe on
+            the day. Security reports, the Land Security Score, the Transfer
+            Readiness Check and any document review are informational
+            indicators based on the answers and observations available. They
+            are not a legal title certification, a survey, or a legal opinion.
+            Where an advocate, surveyor or chartered accountant is involved in
+            your file, we tell you who they are and what they are doing.
           </p>
         </section>
 

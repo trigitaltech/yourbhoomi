@@ -3,10 +3,13 @@ import { services } from "@/lib/services";
 import { site } from "@/lib/site";
 
 export const seo = {
-  homeTitle: "NRI Property Care in India | Ancestral Land | Your Bhoomi",
+  homeTitle: "Land Security & Land Transfer for NRIs in India | Your Bhoomi",
   homeDescription:
-    "Trusted NRI partner for land in India. Watch ancestral property, clear mutation and transfer, and get WhatsApp proof from a verified local person.",
+    "Protect, monitor and transfer your land in India without flying home. Verified inspections, geo-tagged photo and video reports, transfer coordination and WhatsApp updates.",
   keywords: [
+    "land security services India",
+    "NRI land monitoring India",
+    "land transfer services NRI",
     "NRI property management Hyderabad",
     "NRI property management India",
     "NRI buying property in Hyderabad",
