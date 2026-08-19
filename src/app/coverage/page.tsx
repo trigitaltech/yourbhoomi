@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CoverageChecker } from "@/components/CoverageChecker";
-import { coverageDistricts } from "@/lib/site";
+import { coverageDistricts } from "@/lib/coverage";
 
 const title = "Coverage — Districts YourBhoomi Serves in Telangana, Andhra Pradesh, Karnataka & Tamil Nadu";
 const description =

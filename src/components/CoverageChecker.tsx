@@ -5,8 +5,8 @@ import { useState } from "react";
 import { LegalConsent } from "@/components/LegalConsent";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { track } from "@/lib/analytics";
+import { coverageDistricts, districtsFor } from "@/lib/coverage";
 import { indiaStates } from "@/lib/india-states";
-import { coverageDistricts } from "@/lib/site";
 import { submitLead } from "@/lib/submit-lead";
 
 type Search = { state: string; district: string; place: string; pin: string };
@@ -16,17 +16,19 @@ type Result = Search & { status: Status };
 const OTHER = "Other district";
 
 function coverageStatus(state: string, district: string): Status {
-  const list = coverageDistricts[state];
+  const list = districtsFor(state);
   if (!list) return "none";
   const d = district.trim().toLowerCase();
   if (!d || list.some((x) => x.toLowerCase() === d)) return "covered";
   return "partial";
 }
 
+const defaultState = Object.keys(coverageDistricts)[0] ?? indiaStates[0] ?? "Telangana";
+
 export function CoverageChecker({ compact = false }: { compact?: boolean }) {
-  const [state, setState] = useState(indiaStates[0]);
+  const [state, setState] = useState(defaultState);
   const [result, setResult] = useState<Result | null>(null);
-  const districts = coverageDistricts[state];
+  const districts = districtsFor(state);
   const pad = compact ? "p-4" : "p-6";
 
   function handleSearch(e: React.FormEvent<HTMLFormElement>) {
