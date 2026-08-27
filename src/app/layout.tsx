@@ -5,6 +5,7 @@ import { ChatBot } from "@/components/ChatBot";
 import { CookieBanner } from "@/components/CookieBanner";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { HyderabadBrandsStrip } from "@/components/HyderabadBrandsStrip";
 import { JsonLd } from "@/components/JsonLd";
 import { PwaRegister } from "@/components/PwaRegister";
 import { WhatsAppFab } from "@/components/WhatsAppButton";
@@ -78,6 +79,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main id="main" className="flex-1 pt-16">
           {children}
         </main>
+        <HyderabadBrandsStrip />
         <Footer />
         <WhatsAppFab />
         <ChatBot />
