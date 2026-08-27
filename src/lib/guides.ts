@@ -87,70 +87,81 @@ const coreGuides: Guide[] = [
     slug: "ancestral-property-transfer",
     title: "Transferring ancestral property between generations",
     summary:
-      "Gift, will, partition, or succession — which route fits your family, what it costs, and how to keep siblings aligned.",
+      "Gift, will, partition, or succession — which route fits your family, what it costs, and how to keep siblings aligned across generations.",
     readMinutes: 7,
     published: "2026-08-01",
     sections: [
       {
-        heading: "Four routes",
+        heading: "Four primary routes for ancestral land transfer",
         body: [
-          "Gift deed (parents alive, immediate transfer, concessional stamp duty for blood relatives in most states). Will (takes effect on death; needs probate or a succession process). Partition deed (splits joint family land among co-owners). Succession (no will — legal heirs share per personal law).",
+          "1) Gift Deed: Ideal when parents are living and want an immediate title transfer. Blood relatives enjoy concessional stamp duty in states like Telangana (2%), AP, and Karnataka.",
+          "2) Will: Takes effect only upon the testator's death. Requires probate in presidency towns (Mumbai, Kolkata, Chennai) or a legal heir succession process elsewhere.",
+          "3) Partition Deed: Splits jointly inherited family land among co-parceners/co-heirs into distinct physical survey numbers with independent patta passbooks.",
+          "4) Succession / Intestate Transfer: Followed when no valid will exists. Requires a Legal Heir Certificate or Family Member Certificate issued by the Tahsildar via MeeSeva before revenue records can be updated.",
         ],
       },
       {
-        heading: "The sibling conversation",
+        heading: "Keeping NRI siblings and resident parents aligned",
         body: [
-          "Most delays are not legal, they are family. Put the plot list, current record status, and proposed shares in one shared document before anyone signs anything. We prepare bilingual summaries so parents and NRI children read the same page.",
+          "Family property transfers stall most frequently over informal misunderstandings rather than legal roadblocks. Compile a unified property schedule listing survey numbers, extent in acres/guntas, current Pahani/1B status, and Encumbrance Certificate entries into a single shared document before drafting deeds.",
+          "Your Bhoomi prepares clear bilingual summaries in English and local languages so parents in India and NRI siblings abroad read from the exact same page before booking a Sub-Registrar appointment.",
         ],
       },
       {
-        heading: "After registration",
+        heading: "Post-registration: revenue mutation & tax record updates",
         body: [
-          "Registration is the middle of the process, not the end. Mutation, tax name change, and survey map updates follow — see the mutation guide.",
+          "Sub-Registrar deed execution is only the midpoint of a successful transfer. Following registration, file for revenue mutation on Bhu Bharati or MeeSeva to obtain an updated Pattadar Passbook, ROR-1B, and Pahani entry.",
+          "Ensure municipal tax assessment cards (PTIN) and utility accounts are updated to the new owner's name to prevent administrative disputes or future title challenges.",
         ],
       },
     ],
     checklist: [
-      "Family tree with IDs",
-      "Existing deeds and Pahani for each survey number",
-      "Agreed shares in writing",
-      "Stamp duty estimate for the state",
-      "Registrar appointment and witnesses",
+      "Verified family tree with government photo IDs of all co-heirs",
+      "Existing registered deeds, Pahani, ROR-1B, and 30-year EC",
+      "Agreed share breakdown signed in writing by all co-parceners",
+      "State-specific stamp duty and registration fee calculation",
+      "Power of Attorney consular attestation for non-resident heirs",
     ],
   },
   {
     slug: "encroachment-and-boundary-disputes",
     title: "Encroachment: spotting it early and acting fast",
     summary:
-      "The most common NRI loss is slow: a neighbour's fence that moves a metre a year. Here is how to watch, document, and respond.",
-    readMinutes: 5,
+      "The most common NRI land loss is gradual: a neighbour's fence moving a metre per year. How to monitor, document, and legally protect vacant plots.",
+    readMinutes: 6,
     published: "2026-08-01",
     sections: [
       {
-        heading: "Why vacant land invites it",
+        heading: "Why vacant NRI land invites encroachment",
         body: [
-          "Unfenced plots with no visible caretaker are read as unclaimed. Boundary stones vanish, a track becomes a road, a shed becomes a house.",
+          "Unfenced plots without visible caretakers or active municipal records are frequently targeted by land grabbers and encroachers. Over time, boundary stones vanish, informal footpaths turn into public access roads, and temporary sheds evolve into unauthorized permanent structures.",
+          "Under Indian property law, adverse possession claims can mature after 12 years of continuous, uninterrupted possession. Immediate action upon detecting boundary movement or unauthorized occupation is vital to preserve your title.",
         ],
       },
       {
-        heading: "Watch and document",
+        heading: "How to audit and document boundaries from abroad",
         body: [
-          "Get a licensed survey with GPS coordinates once, then take dated photos from the same corners on every visit. That before/after pair is what wins at the Tahsildar's office and in court.",
+          "Commission a licensed land survey with high-precision GPS boundary coordinates, then establish permanent RCC boundary posts or a compound wall. Take dated, geo-tagged photos from identical plot corners during every inspection.",
+          "Maintain a continuous chronological photo audit log alongside annual Encumbrance Certificate (EC) pulls and Pahani record verification. This evidentiary paper trail is crucial when presenting cases before the Revenue Divisional Officer (RDO) or civil courts.",
         ],
       },
       {
-        heading: "Respond in the right order",
+        heading: "Legal escalation steps in proper sequence",
         body: [
-          "Written notice, then a complaint to the Tahsildar/MRO for demarcation, then civil injunction if needed. Physical confrontation by relatives usually makes things worse — a verified local representative and a paper trail work better.",
+          "1) Issue a formal legal notice drafted by an advocate specializing in land revenue.",
+          "2) File an application with the Tahsildar / MRO for official boundary demarcation and survey.",
+          "3) Submit a formal police complaint under relevant IPC/BNS sections for criminal trespass.",
+          "4) Petition the civil court for a temporary and permanent injunction against the encroacher.",
+          "Your Bhoomi coordinates on-ground land surveys, attorney notices, and MRO hearings without requiring you to travel to India.",
         ],
       },
     ],
     checklist: [
-      "Survey sketch and GPS boundary",
-      "Fence or compound wall with stones",
-      "Dated corner photos each visit",
-      "Local caretaker or scheduled watch",
-      "Legal notice template ready",
+      "Official survey sketch and high-precision GPS boundary coordinates",
+      "RCC boundary stones or compound wall with prominent ownership signboard",
+      "Dated corner photo archive updated quarterly",
+      "Local field representative or scheduled property watch",
+      "Legal notice template and advocate contact ready",
     ],
   },
   {
@@ -193,34 +204,37 @@ const coreGuides: Guide[] = [
     title: "The NRI property compliance calendar",
     summary:
       "What is due when — property tax, water and electricity, tenant KYC, and the records to refresh every year so nothing lapses.",
-    readMinutes: 4,
+    readMinutes: 5,
     published: "2026-08-01",
     sections: [
       {
-        heading: "Annual",
+        heading: "Annual compliance tasks",
         body: [
-          "Property/house tax (municipal or Gram Panchayat), land revenue where applicable, income-tax return in India if you have rental income, and a fresh EC pull to catch any surprise entries.",
+          "Deposit municipal/house property tax (GHMC, Gram Panchayat, or local municipal body) before early-bird deadlines. Pull a fresh 13-year or 30-year Encumbrance Certificate (EC) to confirm no unauthorized transactions or liens have been registered.",
+          "Verify Pahani / ROR-1B land records on Bhu Bharati to ensure your name remains correctly reflected in the revenue register. If the property generates rental income, file your annual Indian Income Tax Return (ITR) to claim TDS refunds under Section 195.",
         ],
       },
       {
-        heading: "Ongoing",
+        heading: "Ongoing operational maintenance",
         body: [
-          "Electricity and water in your name; tenant agreements registered where required; a physical visit at least twice a year with dated photos.",
+          "Maintain active utility connections (electricity, water, drainage) in the primary owner's name to establish continuous municipal utility records.",
+          "Ensure tenant agreements (11-month registered leases) are active with complete tenant KYC, Aadhaar verification, and monthly TDS deposit receipts (Form 16A). Schedule bi-annual physical land visits with dated geo-tagged photographs.",
         ],
       },
       {
-        heading: "Every few years",
+        heading: "Multi-year milestone audits",
         body: [
-          "Renew POA if time-limited, update survey maps after any adjoining development, and confirm the record still matches the family after births, deaths, or marriages.",
+          "Renew limited Special Power of Attorney (POA) instruments prior to expiration. Re-verify survey boundaries following major highway expansions, municipal re-zoning, or adjoining layout developments.",
+          "Update municipal property tax assessment cards following family inheritance, partition deeds, or legal heir successions.",
         ],
       },
     ],
     checklist: [
-      "Tax receipts filed by year",
-      "EC pulled annually",
-      "Utility bills in owner name",
-      "Two documented visits a year",
-      "POA validity date",
+      "Annual municipal tax payment receipts archived",
+      "Fresh Encumbrance Certificate (EC) pulled yearly",
+      "Electricity and water utility accounts in owner's name",
+      "Bi-annual geo-tagged physical inspection photo logs",
+      "Power of Attorney (POA) validity dates tracked",
     ],
   },
 ];

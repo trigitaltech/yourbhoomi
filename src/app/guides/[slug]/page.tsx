@@ -38,9 +38,18 @@ export default async function GuidePage({ params }: PageProps<"/guides/[slug]">)
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: g.title,
+        description: g.summary,
+        inLanguage: "en-IN",
+      },
+      {
         "@type": "Article",
         headline: g.title,
         description: g.summary,
+        image: [site.logo],
         datePublished: g.published,
         dateModified: g.published,
         inLanguage: "en-IN",

@@ -90,33 +90,43 @@ export const telanganaGuides: Guide[] = [
     title: "Encumbrance certificate (EC) in Telangana: how to get it from abroad",
     summary:
       "What a 30-year EC shows, how to download it from the IGRS portal or MeeSeva, and why every NRI should pull one every year.",
-    readMinutes: 4,
+    readMinutes: 5,
     published: "2026-08-18",
     sections: [
       {
         heading: "What is an encumbrance certificate?",
         body: [
-          "A certificate from the Registration & Stamps department listing every registered transaction (sale, gift, mortgage, lease, release) on a property for the period you request. A clean EC shows no loans or transfers you did not know about; a surprise entry is the first sign of fraud on NRI-owned land.",
+          "An Encumbrance Certificate (EC) is an official document issued by the Telangana Registration & Stamps Department listing every registered transaction — including sale deeds, gift deeds, mortgages, lease agreements, court attachments, and release deeds — recorded against a specific land survey number or door number over a selected timeline.",
+          "A clean 30-year EC confirms that the land has no undisclosed bank loans, third-party sales, or fraudulent transfers. A surprise entry on your EC is often the first indicator of land grabbing, impersonation, or unauthorized transaction attempt on an NRI-owned plot.",
         ],
       },
       {
         heading: "How do I get an EC for a Hyderabad or Telangana property?",
         body: [
-          "Online on the Telangana IGRS (registration.telangana.gov.in) portal by document number or by survey/door number, or through any MeeSeva centre. Ask for 30 years when selling, gifting, or taking a loan; a 13-year EC is enough for a routine annual check. Digitally signed ECs are accepted by banks and sub-registrars.",
+          "NRIs can request digitally signed Encumbrance Certificates online via the Telangana IGRS portal (registration.telangana.gov.in) using the document registration number, SRO jurisdiction, or survey/door number. Alternatively, an EC can be pulled physically via MeeSeva centres or directly from the Sub-Registrar Office (SRO).",
+          "When selling, gifting, or applying for a mortgage, buyers' banks and legal counsel require a full 30-year search history. For routine annual property checks, a 13-year or 20-year search history is sufficient to confirm clean title continuity. Digitally signed EC copies issued by IGRS are legally valid for all transactions.",
         ],
       },
       {
-        heading: "What if the EC shows something I do not recognise?",
+        heading: "What if the EC shows a transaction I do not recognize?",
         body: [
-          "Get the certified copy of that document from the SRO immediately, then act: a forged sale needs a police complaint and a civil suit for cancellation; a wrongly linked entry needs a rectification request at the SRO. Time matters — buyers of forged deeds try to resell quickly.",
+          "If an unrecognized entry appears on your EC, immediately request a certified copy (CC) of that registered deed from the concerned Sub-Registrar Office (SRO) to inspect the signatures, photographs, and thumb impressions recorded at registration.",
+          "If fraud or impersonation is verified, file a criminal complaint for forgery and trespass, apply to the District Registrar or Tahsildar for verification, and initiate a civil suit for cancellation of the fraudulent deed. Quick legal action is essential because unauthorized buyers frequently attempt rapid secondary sales to third parties.",
+        ],
+      },
+      {
+        heading: "How Your Bhoomi simplifies EC pulls for NRIs",
+        body: [
+          "Your Bhoomi conducts automated annual EC pulls for your property across Telangana, audits every transaction entry against your ownership papers, and archives digitally verified EC copies in your secure digital vault accessible on WhatsApp.",
         ],
       },
     ],
     checklist: [
       "Document number or survey/door number handy",
-      "30-year EC before any transaction",
-      "Annual EC pull on the compliance calendar",
-      "Certified copies of any unknown entries",
+      "30-year EC before any property transaction or transfer",
+      "Annual EC pull schedule on your compliance calendar",
+      "Certified copies (CC) retrieved for any unknown entries",
+      "SRO jurisdiction confirmed for Rangareddy, Medchal, Sangareddy, or Nalgonda",
     ],
   },
   {
@@ -229,33 +239,36 @@ export const telanganaGuides: Guide[] = [
     title: "GHMC property tax for NRIs: PTIN, paying online, and fixing the name",
     summary:
       "How to find your PTIN, pay Greater Hyderabad property tax from abroad, claim the early-bird rebate, and correct a wrong name or assessment.",
-    readMinutes: 4,
+    readMinutes: 5,
     published: "2026-08-18",
     sections: [
       {
         heading: "How do I pay GHMC property tax from abroad?",
         body: [
-          "On ghmc.gov.in (or the MyGHMC app) with your Property Tax Identification Number (PTIN); international cards and Indian net-banking from NRE/NRO accounts work. Pay before 30 April to get the early-bird rebate. Outside GHMC limits, property tax goes to the municipality or Gram Panchayat and is often payable only in person — our partner pays it and sends the receipt.",
+          "NRI property owners can pay Greater Hyderabad Municipal Corporation (GHMC) property tax online at ghmc.gov.in or through the MyGHMC portal using their unique 10-digit Property Tax Identification Number (PTIN). International credit/debit cards and net-banking from NRE or NRO accounts are supported.",
+          "Property tax payments completed prior to April 30th qualify for GHMC's 5% Early Bird Rebate scheme. For properties outside GHMC boundaries (such as Gram Panchayats or municipalities in Rangareddy, Medchal, or Sangareddy), tax payments must often be deposited in person — Your Bhoomi field representatives handle in-person municipal tax deposits and deliver receipt copies directly on WhatsApp.",
         ],
       },
       {
         heading: "The name on the tax record is my father's. Does it matter?",
         body: [
-          "Yes. Mutation of the municipal property record (a separate step from the revenue mutation) is needed for a clean sale, for bank loans, and to prove possession in a dispute. Apply at the GHMC circle office or online with the registered deed or heir certificate; a small mutation fee applies.",
+          "Yes. Municipal record mutation (updating the tax assessment register from a deceased parent or seller to the current owner) is a distinct requirement from revenue land record mutation. Up-to-date municipal tax records in the current owner's name are mandatory for clear title verification during property sales, bank loan approvals, and legal disputes.",
+          "To correct or mutate municipal property tax records, file an application at the respective GHMC Circle Office along with registered sale/gift deeds, legal heir certificates, and tax clearing receipts. Your Bhoomi handles municipal office submissions and follows up until the tax assessment card is updated.",
         ],
       },
       {
-        heading: "Why keep every receipt",
+        heading: "Why keep every annual municipal receipt?",
         body: [
-          "Tax receipts are accepted as evidence of continuous possession, are deductible against rental income, and are the first thing buyers' lawyers ask for. We file each year's receipt in your digital vault.",
+          "Consecutive annual property tax payment receipts serve as authoritative documentary proof of continuous physical possession and ownership in municipal records. They are also allowable tax deductions against rental income in Indian income tax filings.",
         ],
       },
     ],
     checklist: [
-      "PTIN located (or applied for)",
-      "Tax paid before 30 April rebate deadline",
-      "Municipal record mutated to current owner",
-      "Receipts filed by year",
+      "10-digit PTIN located or applied for via GHMC Circle Office",
+      "Property tax deposited prior to the April 30th Early Bird deadline",
+      "Municipal assessment register mutated to current owner's name",
+      "Consecutive annual payment receipts archived in your digital vault",
+      "Gram Panchayat or municipal circle office receipts verified",
     ],
   },
 ];

@@ -144,10 +144,28 @@ export function professionalServiceNode() {
   };
 }
 
-export function siteGraph() {
+export function webPageNode(url = site.url, name = seo.homeTitle, description = seo.homeDescription) {
+  return {
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name,
+    description,
+    inLanguage: "en-IN",
+    isPartOf: { "@id": siteId },
+    publisher: { "@id": orgId },
+  };
+}
+
+export function siteGraph(url = site.url, name = seo.homeTitle, description = seo.homeDescription) {
   return {
     "@context": "https://schema.org",
-    "@graph": [organizationNode(), websiteNode(), professionalServiceNode()],
+    "@graph": [
+      organizationNode(),
+      websiteNode(),
+      professionalServiceNode(),
+      webPageNode(url, name, description),
+    ],
   };
 }
 
