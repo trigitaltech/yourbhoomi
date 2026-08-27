@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Sans } from "next/font/google";
+import { Roboto } from "next/font/google";
 import { Analytics } from "@/components/Analytics";
 import { ChatBot } from "@/components/ChatBot";
 import { CookieBanner } from "@/components/CookieBanner";
@@ -12,9 +12,10 @@ import { seo, siteGraph } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const dm = DM_Sans({
-  variable: "--font-dm",
+const roboto = Roboto({
+  variable: "--font-roboto",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -57,14 +58,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0e2a5c",
+  themeColor: "#f8f9fa",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-IN" className={`${dm.variable} h-full antialiased`}>
+    <html lang="en-IN" className={`${roboto.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-paper text-ink">
         <JsonLd data={siteGraph()} />
         <a
