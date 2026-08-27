@@ -21,6 +21,7 @@ export function llmsTxt() {
   return `${intro}
 ## Key pages
 - [Home](${u("/")}): Land security and land transfer for NRIs — protect, monitor and transfer land in India without flying home
+- [Search](${u("/search")}): site search for services, guides, FAQ, and glossary terms
 - [Land Security](${u("/land-security")}): physical inspection, boundary and encroachment monitoring, geo-tagged photo/video reports, recurring visits
 - [Land Transfer](${u("/land-transfer")}): inheritance, gift, sale, partition, succession, mutation, POA and registration coordination
 - [Sample Security Report](${u("/sample-report")}): what every Bhoomi Security Report contains (anonymized sample)

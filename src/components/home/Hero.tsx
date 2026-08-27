@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { TrackLink } from "@/components/TrackLink";
+import { heroJumps } from "@/lib/nav";
 import { site } from "@/lib/site";
 
 export function Hero() {
   return (
-    <section className="container section" aria-labelledby="hero-heading">
-      <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_1fr]">
+    <section className="section" aria-labelledby="hero-heading">
+      <div className="container grid items-center gap-12 lg:grid-cols-[1.15fr_1fr]">
         <div>
           <p className="eyebrow">Land security &amp; land transfer for NRIs</p>
           <h1 id="hero-heading" className="mt-3 text-3xl">
@@ -15,10 +16,10 @@ export function Hero() {
           <p className="mt-5 max-w-xl text-lg text-ink-2">{site.subline}</p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <TrackLink href="/land-security" event="hero_land_security_click" className="btn btn-primary">
-              Protect My Land
+              Get started
             </TrackLink>
             <TrackLink href="/land-transfer" event="hero_land_transfer_click" className="btn btn-outline">
-              Transfer My Land
+              Transfer my land
             </TrackLink>
           </div>
           <p className="mt-4 text-sm text-ink-2">
@@ -43,6 +44,15 @@ export function Hero() {
           </div>
         </div>
       </div>
+      <nav className="container mt-12 flex justify-center" aria-label="On this page">
+        <div className="jump-pills">
+          {heroJumps.map((j) => (
+            <Link key={j.href} href={j.href}>
+              {j.label}
+            </Link>
+          ))}
+        </div>
+      </nav>
     </section>
   );
 }

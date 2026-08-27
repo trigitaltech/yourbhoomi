@@ -98,7 +98,7 @@ const plans = [
 
 export function PricingTeaser() {
   return (
-    <section className="container section" aria-labelledby="pricing-heading">
+    <section id="pricing" className="container section" aria-labelledby="pricing-heading">
       <p className="eyebrow">Pricing</p>
       <h2 id="pricing-heading" className="mt-3 text-2xl">
         Simple plans for land security. Transfers quoted per case.

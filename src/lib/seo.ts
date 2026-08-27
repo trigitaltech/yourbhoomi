@@ -94,7 +94,37 @@ export function websiteNode() {
     description: seo.homeDescription,
     inLanguage: "en-IN",
     publisher: { "@id": orgId },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${site.url}/search?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
   };
+}
+
+export function siteNavigationNode() {
+  const items = [
+    { name: "Land Security", url: `${site.url}/land-security` },
+    { name: "Land Transfer", url: `${site.url}/land-transfer` },
+    { name: "NRI Desk", url: `${site.url}/nri` },
+    { name: "Tools", url: `${site.url}/land-risk-check` },
+    { name: "Pricing", url: `${site.url}/pricing` },
+    { name: "Guides", url: `${site.url}/guides` },
+    { name: "FAQ", url: `${site.url}/faq` },
+    { name: "Glossary", url: `${site.url}/glossary` },
+    { name: "Coverage", url: `${site.url}/coverage` },
+    { name: "Contact", url: `${site.url}/contact` },
+  ];
+  return items.map((item, i) => ({
+    "@type": "SiteNavigationElement",
+    "@id": `${site.url}/#nav-${i + 1}`,
+    position: i + 1,
+    name: item.name,
+    url: item.url,
+  }));
 }
 
 export function professionalServiceNode() {
@@ -165,6 +195,7 @@ export function siteGraph(url = site.url, name = seo.homeTitle, description = se
       websiteNode(),
       professionalServiceNode(),
       webPageNode(url, name, description),
+      ...siteNavigationNode(),
     ],
   };
 }

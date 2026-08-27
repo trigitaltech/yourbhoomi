@@ -49,7 +49,7 @@ const cols = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-rule bg-paper-2 text-sm text-ink-2">
+    <footer className="border-t border-rule bg-paper text-sm text-ink-2">
       <div className="container grid gap-10 py-14 md:grid-cols-[1.4fr_repeat(4,1fr)]">
         <div>
           <Logo />

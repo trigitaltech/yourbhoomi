@@ -59,7 +59,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f8f9fa",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
 };
@@ -68,6 +68,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en-IN" className={`${roboto.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-paper text-ink">
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700|Google+Sans+Text:400,500&display=swap"
+        />
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
         <JsonLd data={siteGraph()} />
         <a
           href="#main"

@@ -1,16 +1,22 @@
 @import "tailwindcss";
 
-/* Palette: Google Material Design 3 Theme. */
+/* Tokens scanned from workspace.google.com: Google Sans / Roboto, #1a73e8 pills, white 64px header. */
 :root {
-  --paper: #f8f9fa;
-  --paper-2: #ffffff;
+  --paper: #ffffff;
+  --paper-2: #f8f9fa;
+  --hover: #f1f3f4;
   --rule: #dadce0;
   --ink: #202124;
   --ink-2: #5f6368;
+  --ink-3: #3c4043;
   --stamp: #1a73e8;
   --stamp-hover: #1557b0;
   --stamp-soft: #e8f0fe;
-  --seal: #d93025;
+  --g-blue: #4285f4;
+  --g-green: #34a853;
+  --g-yellow: #fbbc04;
+  --g-red: #ea4335;
+  --seal: #ea4335;
   --seal-soft: #fce8e6;
   --whatsapp: #1e8e3e;
   --whatsapp-hover: #137333;
@@ -21,31 +27,41 @@
   --text-base: 1rem;
   --text-lg: 1.125rem;
   --text-xl: 1.375rem;
-  --text-2xl: clamp(1.5rem, 1.2rem + 1vw, 1.75rem);
-  --text-3xl: clamp(2rem, 1.5rem + 2vw, 2.25rem);
+  --text-2xl: clamp(1.5rem, 1.15rem + 1.2vw, 1.75rem);
+  --text-3xl: clamp(2.25rem, 1.5rem + 2.6vw, 3.375rem);
 
   --space-section: clamp(3.5rem, 2.5rem + 3vw, 6rem);
+  --shadow-header: 0 2px 6px 0 rgba(0, 0, 0, 0.12), inset 0 -1px 0 #dadce0;
   --shadow-card: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  --shadow-mega: 0 8px 24px rgba(60, 64, 67, 0.15);
 }
 
 @theme inline {
   --color-paper: var(--paper);
   --color-paper-2: var(--paper-2);
+  --color-hover: var(--hover);
   --color-rule: var(--rule);
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
   --color-stamp: var(--stamp);
   --color-stamp-hover: var(--stamp-hover);
   --color-stamp-soft: var(--stamp-soft);
+  --color-g-blue: var(--g-blue);
+  --color-g-green: var(--g-green);
+  --color-g-yellow: var(--g-yellow);
+  --color-g-red: var(--g-red);
   --color-seal: var(--seal);
   --color-seal-soft: var(--seal-soft);
   --color-whatsapp: var(--whatsapp);
   --color-whatsapp-hover: var(--whatsapp-hover);
   --color-focus: var(--focus);
-  --font-sans: "Google Sans", "Google Sans Text", var(--font-roboto), Roboto, system-ui, -apple-system, sans-serif;
+  --font-sans: "Google Sans", "Google Sans Text", var(--font-roboto), Roboto, Arial, sans-serif;
   --text-2xl: var(--text-2xl);
   --text-3xl: var(--text-3xl);
   --shadow-card: var(--shadow-card);
+  --shadow-header: var(--shadow-header);
+  --shadow-mega: var(--shadow-mega);
 }
 
 html {
@@ -55,19 +71,26 @@ html {
 body {
   background: var(--paper);
   color: var(--ink);
-  font-family: "Google Sans", "Google Sans Text", var(--font-roboto), Roboto, system-ui, -apple-system, sans-serif;
+  font-family: "Google Sans Text", "Google Sans", var(--font-roboto), Roboto, Arial, sans-serif;
   font-size: var(--text-base);
   line-height: 1.5;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.2px;
 }
 
 h1,
 h2,
 h3 {
-  letter-spacing: -0.01em;
-  line-height: 1.25;
-  font-weight: 500;
+  font-family: "Google Sans", "Google Sans Text", var(--font-roboto), Roboto, Arial, sans-serif;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  font-weight: 700;
   color: var(--ink);
+}
+
+h2,
+h3 {
+  font-weight: 500;
+  letter-spacing: -0.25px;
 }
 
 :focus-visible {
@@ -81,7 +104,7 @@ h3 {
 }
 .container {
   margin-inline: auto;
-  max-width: 1120px;
+  max-width: 1280px;
   padding-inline: 1rem;
 }
 @media (min-width: 640px) {
@@ -97,7 +120,7 @@ h3 {
   color: var(--stamp);
 }
 .card {
-  background: var(--paper-2);
+  background: var(--paper);
   border: 1px solid var(--rule);
   border-radius: 16px;
 }
@@ -127,11 +150,13 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border-radius: 24px;
-  padding: 0.6rem 1.4rem;
-  font-size: var(--text-sm);
+  border-radius: 100px;
+  padding: 0.6rem 1.5rem;
+  font-family: "Google Sans", "Google Sans Text", var(--font-roboto), Roboto, Arial, sans-serif;
+  font-size: 14px;
   font-weight: 500;
-  letter-spacing: 0.015em;
+  letter-spacing: 0.2px;
+  line-height: 22px;
   transition: background 150ms, color 150ms, border-color 150ms, box-shadow 150ms;
 }
 .btn-primary {
@@ -148,7 +173,46 @@ h3 {
 }
 .btn-outline:hover {
   border-color: var(--stamp);
-  background: var(--stamp-soft);
+  background: var(--paper-2);
+}
+
+.nav-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 8px;
+  padding: 0.4rem 0.7rem;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  line-height: 22px;
+  color: var(--ink-3);
+}
+.nav-trigger:hover,
+.nav-trigger[aria-expanded="true"] {
+  background: var(--hover);
+  color: var(--ink);
+}
+.jump-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 1.25rem;
+  border-radius: 100px;
+  background: var(--paper);
+  box-shadow: var(--shadow-card);
+  padding: 0.65rem 1.25rem;
+}
+.jump-pills a {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  color: var(--ink-3);
+}
+.jump-pills a:hover,
+.jump-pills a[aria-current="true"] {
+  font-weight: 500;
+  color: var(--ink);
 }
 .btn-whatsapp {
   background: var(--whatsapp);

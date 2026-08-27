@@ -48,14 +48,3 @@ export const comingSoonFeatures = {
 export type FeatureKey = keyof typeof comingSoonFeatures;
 
 export const comingSoonHref = (key: FeatureKey) => `/coming-soon?for=${key}`;
-
-export const nav = [
-  { href: "/land-security", label: "Land Security" },
-  { href: "/land-transfer", label: "Land Transfer" },
-  { href: "/nri", label: "NRI Services" },
-  { href: "/#how", label: "How It Works" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/guides", label: "Guides" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];

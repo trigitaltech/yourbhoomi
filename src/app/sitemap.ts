@@ -33,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/faq", 0.8, "weekly"),
     page("/glossary", 0.7),
     page("/properties", 0.9, "weekly"),
+    page("/search", 0.4),
     page("/guides", 0.8),
     page("/about", 0.7),
     page("/contact", 0.8),
