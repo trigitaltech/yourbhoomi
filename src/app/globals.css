@@ -199,3 +199,35 @@ html[data-cookie-banner] .chat-fab {
   animation-play-state: paused;
 }
 
+/* Process Rail Shimmer & Subtle Float Animations for How-It-Works section */
+@keyframes flow-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-flow-rail {
+  background: linear-gradient(90deg, #1a73e8 0%, #34a853 50%, #1a73e8 100%);
+  background-size: 200% 100%;
+  animation: flow-shimmer 5s linear infinite;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.85;
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2.5s ease-in-out infinite;
+}
+
+
