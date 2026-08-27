@@ -6,9 +6,9 @@ export const site = {
     "Protect, monitor and transfer your land in India without flying home. Verified inspections, photo and video evidence, document support, transfer coordination and regular WhatsApp updates.",
   url: "https://yourbhoomi.com",
   email: "hello@yourbhoomi.com",
-  phone: "+91 40 4000 1200",
+  phone: "+91 70138 70575",
   // ponytail: single WhatsApp business number; swap for a per-city router later
-  whatsapp: "914040001200",
+  whatsapp: "917013870575",
   address: "Banjara Hills, Hyderabad",
   city: "Hyderabad",
   region: "Telangana",

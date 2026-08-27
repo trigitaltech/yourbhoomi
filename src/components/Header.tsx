@@ -94,7 +94,7 @@ export function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
   const rootRef = useRef<HTMLElement>(null);
-  const leaveTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const leaveTimer = useRef<number | undefined>(undefined);
   const searchId = useId();
 
   function closeAll() {
