@@ -3,9 +3,9 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RiskCheck } from "@/components/RiskCheck";
 
-const title = "Free Land Risk Check — Get Your Land Security Score in 2 Minutes";
+const title = "Free Land Risk Check — NRI Land Security & Encroachment Score";
 const description =
-  "Answer 12 quick questions about your land in India — inspection history, boundary, fence, mutation, EC, tax and local monitoring — and get a Land Security Score with plain recommendations. Built for NRIs.";
+  "Evaluate encroachment risks for vacant plots in India. Get instant NRI Land Security Score, Bhu Bharati status, and encroachment prevention steps.";
 
 export const metadata: Metadata = {
   title,

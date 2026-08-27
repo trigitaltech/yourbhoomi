@@ -5,7 +5,7 @@ import { TransferCheck } from "@/components/TransferCheck";
 
 const title = "Transfer Readiness Check — Is Your Property in India Ready for Transfer?";
 const description =
-  "Check whether your sale, gift, inheritance, partition or succession transfer in India is ready: registered deed, mutation, EC, tax receipts, legal heirs, disputes and POA for NRIs. Get a readiness percentage and next steps.";
+  "Check if your property transfer in India is ready. We assess documents, legal heirs, disputes, and NRI POA. Get readiness score and next steps.";
 
 export const metadata: Metadata = {
   title,

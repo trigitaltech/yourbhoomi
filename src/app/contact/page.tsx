@@ -5,14 +5,14 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact — NRI Property Desk in Hyderabad",
+  title: "Contact — NRI Property Desk in Hyderabad | Your Bhoomi",
   description:
-    "WhatsApp, phone, or email Your Bhoomi in Hyderabad for NRI land watch, ancestral transfer, mutation, and property care in India.",
+    "Contact Your Bhoomi NRI Property Desk in Hyderabad for land security, encroachment checks, Bhu Bharati mutation, and property management.",
   alternates: { canonical: "/contact" },
   openGraph: {
-    title: "Contact Your Bhoomi — NRI Property Desk",
+    title: "Contact Your Bhoomi — NRI Property Desk in Hyderabad",
     description:
-      "WhatsApp, phone, or email Your Bhoomi in Hyderabad for NRI land watch, ancestral transfer, mutation, and property care in India.",
+      "Contact Your Bhoomi NRI Property Desk in Hyderabad for land security, encroachment checks, Bhu Bharati mutation, and property management.",
     url: "/contact",
   },
 };
