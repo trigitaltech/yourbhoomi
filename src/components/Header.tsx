@@ -205,6 +205,12 @@ export function Header() {
           <Link href="/land-risk-check" className="btn btn-primary !py-2">
             Get started
           </Link>
+          <a
+            href="https://yourbhoomi-web.netlify.app/login"
+            className="btn btn-outline !py-2"
+          >
+            Login
+          </a>
           <button
             type="button"
             className="rounded-md p-2 lg:hidden"
@@ -290,6 +296,12 @@ export function Header() {
           <Link href="/contact" onClick={closeAll} className="btn btn-outline mt-3 w-full">
             Contact us
           </Link>
+          <a
+            href="https://yourbhoomi-web.netlify.app/login"
+            className="btn btn-primary mt-2 w-full"
+          >
+            Login
+          </a>
         </nav>
       )}
     </header>
