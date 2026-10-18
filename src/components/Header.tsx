@@ -206,7 +206,7 @@ export function Header() {
             Get started
           </Link>
           <a
-            href="https://yourbhoomi-web.netlify.app/login"
+            href="https://yourbhoomi-web.netlify.app"
             className="btn btn-outline !py-2"
           >
             Login
@@ -297,7 +297,7 @@ export function Header() {
             Contact us
           </Link>
           <a
-            href="https://yourbhoomi-web.netlify.app/login"
+            href="https://yourbhoomi-web.netlify.app"
             className="btn btn-primary mt-2 w-full"
           >
             Login
