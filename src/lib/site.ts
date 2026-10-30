@@ -5,7 +5,7 @@ export const site = {
   subline:
     "Protect, monitor and transfer your land in India without flying home. Verified inspections, photo and video evidence, document support, transfer coordination and regular WhatsApp updates.",
   url: "https://yourbhoomi.com",
-  email: "hello@yourbhoomi.com",
+  email: "info@yourbhoomi.com",
   phone: "+91 70138 70575",
   // ponytail: single WhatsApp business number; swap for a per-city router later
   whatsapp: "917013870575",
