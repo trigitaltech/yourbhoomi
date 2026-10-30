@@ -46,14 +46,15 @@ export default function LandSecurityPage() {
       <p className="eyebrow mt-6">{landSecurityHero.eyebrow}</p>
       <h1 className="mt-3 max-w-3xl text-2xl">{landSecurityHero.h1}</h1>
       <p className="mt-4 max-w-2xl text-lg text-ink-2">{landSecurityHero.body}</p>
-      <div className="mt-8 flex flex-wrap gap-4">
+      <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
         <WhatsAppButton
           message="Hi YourBhoomi, I own land in [district, state] and would like to understand the Land Security service."
           source="land-security-hero"
+          className="w-full sm:w-auto"
         >
           Check My Land Security
         </WhatsAppButton>
-        <Link href="/land-risk-check" className="btn btn-outline">
+        <Link href="/land-risk-check" className="btn btn-outline w-full sm:w-auto">
           Free Land Risk Check
         </Link>
       </div>
@@ -93,7 +94,7 @@ export default function LandSecurityPage() {
 
       <section className="mt-14">
         <h2 className="text-2xl">Plans</h2>
-        <div className="mt-6 grid gap-5 md:grid-cols-3">
+        <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {landSecurityPlans.map((p) => (
             <div key={p.name} className="card p-6">
               <p className="eyebrow">{p.for}</p>

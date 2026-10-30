@@ -32,7 +32,7 @@ export default function ContactPage() {
         WhatsApp is fastest. One thread, one advisor, plain language back.
       </p>
       <div className="mt-6">
-        <WhatsAppButton>Chat on WhatsApp</WhatsAppButton>
+        <WhatsAppButton className="w-full sm:w-auto">Chat on WhatsApp</WhatsAppButton>
       </div>
       <div className="mt-12 grid gap-12 lg:grid-cols-2">
         <div>
@@ -50,7 +50,7 @@ export default function ContactPage() {
             <LeadForm variant="contact" />
           </div>
         </div>
-        <div className="card bg-paper-2 p-8">
+        <div className="card bg-paper-2 p-5 sm:p-8">
           <h2 className="text-lg font-semibold text-stamp">
             Be first to know when we open in your district
           </h2>

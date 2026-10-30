@@ -54,10 +54,10 @@ export function NriDesk() {
                 <li key={g.slug}>
                   <Link
                     href={`/guides/${g.slug}`}
-                    className="flex items-center justify-between gap-4 py-3 text-sm hover:text-stamp"
+                    className="flex flex-col gap-1 py-3 text-sm hover:text-stamp sm:flex-row sm:items-center sm:justify-between sm:gap-4"
                   >
                     <span>{g.title}</span>
-                    <span className="shrink-0 text-xs text-ink-2">{g.readMinutes} min</span>
+                    <span className="shrink-0 text-xs text-ink-2">{g.readMinutes} min read</span>
                   </Link>
                 </li>
               ))}

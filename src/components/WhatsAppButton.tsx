@@ -49,7 +49,7 @@ export function WhatsAppFab() {
       rel="noopener noreferrer"
       onClick={() => track("whatsapp_click", { source: "fab" })}
       aria-label="Chat with Your Bhoomi on WhatsApp"
-      className="fixed right-4 bottom-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-card hover:bg-whatsapp-hover sm:right-6 sm:bottom-6 whatsapp-fab"
+      className="whatsapp-fab fixed right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-50 flex h-14 w-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-card transition hover:bg-whatsapp-hover sm:right-6 sm:bottom-[max(1.5rem,env(safe-area-inset-bottom))]"
     >
       <WaIcon className="h-7 w-7" />
     </a>

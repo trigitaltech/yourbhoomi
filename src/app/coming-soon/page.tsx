@@ -51,11 +51,11 @@ export default async function ComingSoonPage({ searchParams }: PageProps<"/comin
             Meanwhile, our Watch, Manage, Transact, and Comply desks are live today — and a real person is one message
             away.
           </p>
-          <div className="mt-6 flex flex-wrap gap-4">
-            <WhatsAppButton message={`Hi, I'm interested in ${f.label} on Your Bhoomi. Can you tell me more?`}>
+          <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+            <WhatsAppButton className="w-full sm:w-auto" message={`Hi, I'm interested in ${f.label} on Your Bhoomi. Can you tell me more?`}>
               Ask us on WhatsApp
             </WhatsAppButton>
-            <Link href="/#services" className="btn btn-outline">
+            <Link href="/#services" className="btn btn-outline w-full sm:w-auto">
               See what is live now
             </Link>
           </div>

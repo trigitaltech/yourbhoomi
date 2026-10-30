@@ -21,7 +21,7 @@ export function PropertyCard({ p }: { p: Property }) {
         </span>
       </div>
       <div className="p-5">
-        <div className="flex items-baseline justify-between gap-3">
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3">
           <h3 className="text-lg font-semibold text-stamp">{p.title}</h3>
           <span className="text-base font-semibold text-ink">{p.price}</span>
         </div>

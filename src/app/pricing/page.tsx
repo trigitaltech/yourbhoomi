@@ -138,42 +138,42 @@ export default function PricingPage() {
       </p>
       <TrackView event="pricing_view" />
       <h2 className="mt-12 text-xl font-semibold text-stamp">Land Security plans</h2>
-      <div className="mt-5 grid gap-5 md:grid-cols-3">
+      <div className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {securityPlans.map((p) => (
-          <div key={p.name} className={`card flex flex-col p-6 ${p.highlight ? "border-stamp bg-stamp-soft/30" : ""}`}>
+          <div key={p.name} className={`card flex flex-col p-5 sm:p-6 ${p.highlight ? "border-stamp bg-stamp-soft/30" : ""}`}>
             <p className="eyebrow">{p.for}</p>
             <h3 className="mt-2 text-xl font-semibold text-stamp">{p.name}</h3>
             <p className="mt-3 text-2xl font-semibold text-ink">{p.price}</p>
             <p className="text-sm text-ink-2">{p.unit}</p>
             <PlanList items={p.includes} />
             <p className="mt-4 flex-1 text-xs text-ink-2">{p.note}</p>
-            <WhatsAppButton message={p.message} source={`pricing-${p.name}`} className="mt-5 w-fit">
+            <WhatsAppButton message={p.message} source={`pricing-${p.name}`} className="mt-5 w-full sm:w-fit">
               {p.cta}
             </WhatsAppButton>
           </div>
         ))}
       </div>
       <h2 className="mt-14 text-xl font-semibold text-stamp">Land Transfer and other services</h2>
-      <div className="mt-5 grid gap-5 md:grid-cols-3">
+      <div className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {otherPlans.map((p) => (
-          <div key={p.name} className="card flex flex-col p-6">
+          <div key={p.name} className="card flex flex-col p-5 sm:p-6">
             <p className="eyebrow">{p.for}</p>
             <h3 className="mt-2 text-xl font-semibold text-stamp">{p.name}</h3>
             <p className="mt-3 text-2xl font-semibold text-ink">{p.price}</p>
             <p className="text-sm text-ink-2">{p.unit}</p>
             <PlanList items={p.includes} />
             <p className="mt-4 flex-1 text-xs text-ink-2">{p.note}</p>
-            <Link href={p.href} className="btn btn-outline mt-5 w-fit">
+            <Link href={p.href} className="btn btn-outline mt-5 w-full sm:w-fit">
               {p.cta}
             </Link>
           </div>
         ))}
       </div>
-      <div className="mt-8 flex flex-wrap gap-4">
-        <WhatsAppButton message="Hi YourBhoomi, I'd like a quote for my property in [district, state]. Here are the details:" source="pricing-quote">
+      <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+        <WhatsAppButton className="w-full sm:w-auto" message="Hi YourBhoomi, I'd like a quote for my property in [district, state]. Here are the details:" source="pricing-quote">
           Get a quote on WhatsApp
         </WhatsAppButton>
-        <Link href="/compare" className="btn btn-outline">
+        <Link href="/compare" className="btn btn-outline w-full sm:w-auto">
           Compare with the alternatives
         </Link>
       </div>

@@ -67,10 +67,10 @@ export default async function IntentPage({ params }: PageProps<"/nri/[city]/[int
       <p id="answer" className="mt-4 text-lg text-ink-2">
         {i.answer}
       </p>
-      <div className="mt-6 flex flex-wrap gap-4">
-        <WhatsAppButton message={i.ctaMessage}>Ask on WhatsApp</WhatsAppButton>
+      <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+        <WhatsAppButton className="w-full sm:w-auto" message={i.ctaMessage}>Ask on WhatsApp</WhatsAppButton>
         {(i.key === "buy" || i.key === "sell") && (
-          <Link href={comingSoonHref(i.key)} className="btn btn-outline">
+          <Link href={comingSoonHref(i.key)} className="btn btn-outline w-full sm:w-auto">
             Get notified when the {i.label} desk launches
           </Link>
         )}

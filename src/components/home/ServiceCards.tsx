@@ -28,11 +28,11 @@ export function ServiceCards() {
       </h2>
       <div className="mt-10 grid gap-6 md:grid-cols-2">
         {cards.map((c) => (
-          <article key={c.href} className="card card-hover flex flex-col p-7">
+          <article key={c.href} className="card card-hover flex flex-col p-5 sm:p-7">
             <p className="eyebrow">{c.eyebrow}</p>
             <h3 className="mt-2 text-xl font-semibold text-stamp">{c.title}</h3>
             <p className="mt-3 text-ink-2">{c.body}</p>
-            <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-ink">
+            <ul className="mt-5 grid gap-x-4 gap-y-2 text-sm text-ink sm:grid-cols-2">
               {c.features.map((f) => (
                 <li key={f} className="flex gap-2">
                   <span className="text-seal" aria-hidden>
@@ -42,7 +42,7 @@ export function ServiceCards() {
                 </li>
               ))}
             </ul>
-            <Link href={c.href} className="btn btn-primary mt-7 w-fit">
+            <Link href={c.href} className="btn btn-primary mt-7 w-full sm:w-fit">
               {c.cta}
             </Link>
           </article>

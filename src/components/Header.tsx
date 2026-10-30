@@ -89,11 +89,17 @@ function isMega(item: NavItem): item is Extract<NavItem, { kind: "mega" }> {
 
 export function Header() {
   const pathname = usePathname();
+  return <HeaderShell key={pathname} />;
+}
+
+function HeaderShell() {
   const [open, setOpen] = useState<string | null>(null);
   const [mobile, setMobile] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
   const rootRef = useRef<HTMLElement>(null);
+  const mobileRef = useRef<HTMLElement>(null);
+  const menuTriggerRef = useRef<HTMLButtonElement>(null);
   const leaveTimer = useRef<number | undefined>(undefined);
   const searchId = useId();
 
@@ -114,12 +120,43 @@ export function Header() {
   }
 
   useEffect(() => {
-    closeAll();
-  }, [pathname]);
-
-  useEffect(() => {
     if (searchOpen) searchRef.current?.focus();
   }, [searchOpen]);
+
+  useEffect(() => {
+    if (!mobile) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.requestAnimationFrame(() => {
+      mobileRef.current?.querySelector<HTMLElement>("a, button, summary")?.focus();
+    });
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [mobile]);
+
+  function handleMobileKeyDown(e: React.KeyboardEvent<HTMLElement>) {
+    if (e.key === "Escape") {
+      e.preventDefault();
+      closeAll();
+      window.requestAnimationFrame(() => menuTriggerRef.current?.focus());
+      return;
+    }
+    if (e.key !== "Tab" || !mobileRef.current) return;
+    const focusable = mobileRef.current.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), summary, input:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    );
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -153,10 +190,10 @@ export function Header() {
           <Logo />
         </Link>
 
-        <nav className="ml-4 hidden items-center lg:flex" aria-label="Main">
+        <nav className="desktop-nav ml-4 items-center" aria-label="Main">
           {megaNav.map((item) =>
             item.kind === "link" ? (
-              <Link key={item.id} href={item.href} className="nav-trigger">
+              <Link key={item.id} href={item.href} onClick={closeAll} className="nav-trigger">
                 {item.label}
               </Link>
             ) : (
@@ -196,27 +233,29 @@ export function Header() {
           >
             <SearchIcon />
           </button>
-          <Link href="/contact" className="nav-trigger hidden xl:inline-flex">
-            Contact
-          </Link>
-          <Link href="/contact" className="btn btn-outline !py-2 hidden sm:inline-flex">
-            Contact us
-          </Link>
-          <Link href="/land-risk-check" className="btn btn-primary !py-2">
-            Get started
-          </Link>
-          <a
-            href="https://yourbhoomi-web.netlify.app"
-            className="btn btn-outline !py-2"
-          >
-            Login
-          </a>
+          <div className="desktop-only">
+            <Link href="/contact" className="nav-trigger">
+              Contact
+            </Link>
+          </div>
+          <div className="desktop-actions">
+            <Link href="/land-risk-check" className="btn btn-primary !py-2">
+              Get started
+            </Link>
+            <a
+              href="https://yourbhoomi-web.netlify.app"
+              className="btn btn-outline !py-2"
+            >
+              Login
+            </a>
+          </div>
           <button
+            ref={menuTriggerRef}
             type="button"
-            className="rounded-md p-2 lg:hidden"
+            className="mobile-menu-trigger flex h-11 w-11 flex-col items-center justify-center rounded-full hover:bg-hover"
             aria-expanded={mobile}
             aria-controls="mobile-nav"
-            aria-label="Menu"
+            aria-label={mobile ? "Close navigation menu" : "Open navigation menu"}
             onClick={() => {
               setSearchOpen(false);
               setMobile((v) => !v);
@@ -241,11 +280,11 @@ export function Header() {
                 ref={searchRef}
                 id="site-q"
                 name="q"
-                className="w-full bg-transparent text-sm outline-none"
+                className="min-w-0 w-full bg-transparent text-base outline-none"
                 placeholder="Search land security, transfer, mutation, POA…"
                 autoComplete="off"
               />
-              <button type="submit" className="btn btn-primary !py-1.5 !px-4">
+              <button type="submit" className="btn btn-primary shrink-0 !px-4 !py-1.5">
                 Search
               </button>
             </div>
@@ -270,14 +309,20 @@ export function Header() {
       {activeMega && isMega(activeMega) && (
         <div
           id={`mega-${activeMega.id}`}
-          className="hidden border-t border-rule bg-paper shadow-[var(--shadow-mega)] lg:block"
+          className="desktop-mega border-t border-rule bg-paper shadow-[var(--shadow-mega)]"
         >
           <MegaColumns columns={activeMega.columns} featured={activeMega.featured} onNavigate={closeAll} />
         </div>
       )}
 
       {mobile && (
-        <nav id="mobile-nav" className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-rule bg-paper px-4 py-3 lg:hidden" aria-label="Mobile">
+        <nav
+          ref={mobileRef}
+          id="mobile-nav"
+          onKeyDown={handleMobileKeyDown}
+          className="mobile-nav-drawer max-h-[calc(100dvh-4rem)] overscroll-contain overflow-y-auto border-t border-rule bg-paper px-4 py-3 pb-[max(1rem,env(safe-area-inset-bottom))]"
+          aria-label="Mobile"
+        >
           {megaNav.map((item) =>
             item.kind === "link" ? (
               <Link key={item.id} href={item.href} onClick={closeAll} className="block rounded-lg px-2 py-2 hover:bg-hover">
@@ -296,9 +341,12 @@ export function Header() {
           <Link href="/contact" onClick={closeAll} className="btn btn-outline mt-3 w-full">
             Contact us
           </Link>
+          <Link href="/land-risk-check" onClick={closeAll} className="btn btn-primary mt-2 w-full">
+            Get started
+          </Link>
           <a
             href="https://yourbhoomi-web.netlify.app"
-            className="btn btn-primary mt-2 w-full"
+            className="btn btn-outline mt-2 w-full"
           >
             Login
           </a>

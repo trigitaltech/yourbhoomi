@@ -73,11 +73,11 @@ export default async function CityPage({ params }: PageProps<"/nri/[city]">) {
         </p>
         <h1 className="mt-3 max-w-3xl text-3xl">{c.h1}</h1>
         <p className="mt-5 max-w-2xl text-lg text-ink-2">{c.answer}</p>
-        <div className="mt-8 flex flex-wrap gap-4">
-          <WhatsAppButton message={`Hi, I'm an NRI with property in ${c.name}. I'd like to talk to your desk.`}>
+        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+          <WhatsAppButton className="w-full sm:w-auto" message={`Hi, I'm an NRI with property in ${c.name}. I'd like to talk to your desk.`}>
             Talk to the {c.name} desk
           </WhatsAppButton>
-          <Link href="/pricing" className="btn btn-outline">
+          <Link href="/pricing" className="btn btn-outline w-full sm:w-auto">
             See indicative pricing
           </Link>
         </div>
@@ -94,7 +94,7 @@ export default async function CityPage({ params }: PageProps<"/nri/[city]">) {
       <section className="border-y border-rule bg-paper-2">
         <div className="container section">
           <h2 className="text-2xl">What do you need done in {c.name}?</h2>
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
+          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {c.intents.map((i) => (
               <Link key={i.key} href={`${path}/${i.key}`} className="card card-hover p-6">
                 <p className="eyebrow">{i.label}</p>

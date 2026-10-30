@@ -29,7 +29,7 @@ export function CookieBanner() {
       role="region"
       aria-labelledby="cookie-banner-title"
       aria-describedby="cookie-banner-body"
-      className="fixed inset-x-0 bottom-0 z-[70] border-t border-rule bg-paper p-4 shadow-card sm:inset-x-auto sm:bottom-6 sm:left-6 sm:max-w-md sm:rounded-2xl sm:border"
+      className="fixed inset-x-0 bottom-0 z-[70] border-t border-rule bg-paper px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 shadow-card sm:inset-x-auto sm:bottom-6 sm:left-6 sm:max-w-md sm:rounded-2xl sm:border sm:p-5"
     >
       <p id="cookie-banner-title" className="font-semibold text-stamp">
         Cookies on Your Bhoomi
@@ -46,11 +46,11 @@ export function CookieBanner() {
         </Link>
         .
       </p>
-      <div className="mt-4 flex flex-wrap gap-2">
-        <button type="button" className="btn btn-primary !py-2" onClick={() => writeConsent(true)}>
+      <div className="mt-4 grid grid-cols-2 gap-2">
+        <button type="button" className="btn btn-primary !px-3 !py-2" onClick={() => writeConsent(true)}>
           Accept cookies
         </button>
-        <button type="button" className="btn btn-outline !py-2" onClick={() => writeConsent(false)}>
+        <button type="button" className="btn btn-outline !px-3 !py-2" onClick={() => writeConsent(false)}>
           Essential only
         </button>
       </div>

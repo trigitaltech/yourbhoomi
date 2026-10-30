@@ -53,14 +53,15 @@ export default function SampleReportPage() {
         </ul>
       </section>
 
-      <div className="mt-10 flex flex-wrap gap-4">
+      <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
         <WhatsAppButton
           message="Hi YourBhoomi, I'd like to book a physical land security check for my land in [district]."
           source="sample-report"
+          className="w-full sm:w-auto"
         >
           Book a Physical Land Security Check
         </WhatsAppButton>
-        <Link href="/land-security" className="btn btn-outline">
+        <Link href="/land-security" className="btn btn-outline w-full sm:w-auto">
           About Land Security
         </Link>
       </div>

@@ -50,8 +50,8 @@ const cols = [
 export function Footer() {
   return (
     <footer className="border-t border-rule bg-paper text-sm text-ink-2">
-      <div className="container grid gap-10 py-14 md:grid-cols-[1.4fr_repeat(4,1fr)]">
-        <div>
+      <div className="container grid gap-x-8 gap-y-10 py-12 sm:grid-cols-2 md:grid-cols-3 lg:py-14 xl:grid-cols-[1.4fr_repeat(4,1fr)]">
+        <div className="sm:col-span-2 md:col-span-3 xl:col-span-1">
           <Logo />
           <p className="mt-3 max-w-xs leading-relaxed">
             Land security and land transfer for people who cannot be physically

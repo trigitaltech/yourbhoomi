@@ -90,11 +90,14 @@ const hyderabadBrands: Brand[] = [
   },
 ];
 
-function BrandCard({ brand }: { brand: Brand }) {
+function BrandCard({ brand, duplicate = false }: { brand: Brand; duplicate?: boolean }) {
   const [imageError, setImageError] = useState(false);
 
   return (
-    <div className="group flex min-w-[240px] items-center gap-3.5 rounded-xl border border-rule bg-paper-2 px-4 py-3 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-stamp hover:shadow-card">
+    <div
+      aria-hidden={duplicate || undefined}
+      className="group flex min-w-[220px] items-center gap-3.5 rounded-xl border border-rule bg-paper-2 px-4 py-3 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-stamp hover:shadow-card sm:min-w-[240px]"
+    >
       <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-rule bg-paper">
         {brand.logoUrl && !imageError ? (
           <Image
@@ -114,8 +117,8 @@ function BrandCard({ brand }: { brand: Brand }) {
       </div>
       <div className="flex flex-col text-left">
         <span className="text-xs font-semibold text-ink group-hover:text-stamp">{brand.name}</span>
-        <span className="text-[11px] font-medium text-ink-2">{brand.projectsCount || "Hyderabad Builder"}</span>
-        <span className="text-[10px] text-ink-2/80 truncate max-w-[150px]">{brand.location}</span>
+        <span className="text-xs font-medium text-ink-2">{brand.projectsCount || "Hyderabad Builder"}</span>
+        <span className="max-w-[150px] truncate text-xs text-ink-2/80">{brand.location}</span>
       </div>
     </div>
   );
@@ -142,10 +145,10 @@ export function HyderabadBrandsStrip() {
         </p>
       </div>
 
-      <div className="relative w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-12 before:bg-gradient-to-r before:from-paper before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-12 after:bg-gradient-to-l after:from-paper after:to-transparent">
+      <div className="relative w-full overflow-hidden motion-reduce:overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden before:pointer-events-none before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-8 before:bg-gradient-to-r before:from-paper before:to-transparent after:pointer-events-none after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-8 after:bg-gradient-to-l after:from-paper after:to-transparent sm:before:w-12 sm:after:w-12">
         <div className="animate-marquee flex gap-4 py-2">
           {marqueeItems.map((brand, idx) => (
-            <BrandCard key={`${brand.name}-${idx}`} brand={brand} />
+            <BrandCard key={`${brand.name}-${idx}`} brand={brand} duplicate={idx >= hyderabadBrands.length} />
           ))}
         </div>
       </div>

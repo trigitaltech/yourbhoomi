@@ -28,7 +28,7 @@ export function YourMan() {
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
-          <div className="absolute top-4 left-4 flex items-center gap-3 rounded-xl bg-paper/95 p-3 shadow-card">
+          <div className="absolute left-3 right-3 top-3 flex max-w-sm items-center gap-3 rounded-xl bg-paper/95 p-3 shadow-card sm:left-4 sm:right-auto sm:top-4">
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-stamp text-sm font-semibold text-white">
               RK
             </span>

@@ -55,7 +55,7 @@ export default function ComparePage() {
       <p className="mt-4 max-w-2xl text-ink-2">
         NRIs usually choose between flying home, leaning on a relative, a listing portal, or a dedicated NRI land desk. Here is what each actually does — honestly, including where the others are better.
       </p>
-      <div className="mt-10 overflow-x-auto">
+      <div className="mt-10 hidden overflow-x-auto md:block" tabIndex={0} aria-label="Scrollable property care comparison">
         <table className="w-full min-w-[820px] border-collapse text-sm">
           <caption className="sr-only">Comparison of NRI property care options</caption>
           <thead>
@@ -82,14 +82,31 @@ export default function ComparePage() {
           </tbody>
         </table>
       </div>
+      <div className="mt-10 space-y-4 md:hidden" aria-label="Property care comparison">
+        {rows.map((r, rowIndex) => (
+          <section key={r.need} className="card p-4" aria-labelledby={`compare-${rowIndex}`}>
+            <h2 id={`compare-${rowIndex}`} className="text-base font-semibold text-ink">
+              {r.need}
+            </h2>
+            <dl className="mt-4 grid gap-3 sm:grid-cols-2">
+              {cols.map((col, idx) => (
+                <div key={col} className={`rounded-xl p-3 ${idx === 3 ? "bg-stamp-soft" : "bg-paper-2"}`}>
+                  <dt className={`text-xs font-semibold ${idx === 3 ? "text-stamp" : "text-ink"}`}>{col}</dt>
+                  <dd className={`mt-1 text-sm ${idx === 3 ? "text-stamp" : "text-ink-2"}`}>{r.cells[idx]}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        ))}
+      </div>
       <p className="mt-6 max-w-2xl text-sm text-ink-2">
         Portals are better than us at scale tenant search across a city; a relative is better than us at knowing the family history. We are better at showing up, documenting, and finishing the paperwork.
       </p>
-      <div className="mt-8 flex flex-wrap gap-4">
-        <WhatsAppButton message="Hi, I'm comparing options to look after my property in India. Can you tell me how you'd handle mine?">
+      <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+        <WhatsAppButton className="w-full sm:w-auto" message="Hi, I'm comparing options to look after my property in India. Can you tell me how you'd handle mine?">
           Ask how we would handle yours
         </WhatsAppButton>
-        <Link href="/pricing" className="btn btn-outline">
+        <Link href="/pricing" className="btn btn-outline w-full sm:w-auto">
           See pricing
         </Link>
       </div>

@@ -77,10 +77,10 @@ export default async function PropertiesPage({ searchParams }: PageProps<"/prope
         ))}
       </div>
       {results.length === 0 && (
-        <div className="card mt-8 p-8 text-center">
+        <div className="card mt-8 p-5 text-center sm:p-8">
           <p className="text-ink-2">No properties match those filters yet.</p>
           <p className="mt-4">
-            <WhatsAppButton message="Hi, I'm looking for land/property in a specific area — can you help me search?">
+            <WhatsAppButton className="w-full sm:w-auto" message="Hi, I'm looking for land/property in a specific area — can you help me search?">
               Ask us to look for you
             </WhatsAppButton>
           </p>

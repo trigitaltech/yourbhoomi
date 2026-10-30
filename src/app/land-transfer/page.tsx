@@ -45,14 +45,15 @@ export default function LandTransferPage() {
       <p className="eyebrow mt-6">{landTransferHero.eyebrow}</p>
       <h1 className="mt-3 max-w-3xl text-2xl">{landTransferHero.h1}</h1>
       <p className="mt-4 max-w-2xl text-lg text-ink-2">{landTransferHero.sub}</p>
-      <div className="mt-8 flex flex-wrap gap-4">
+      <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
         <WhatsAppButton
           message="Hi YourBhoomi, I'd like to discuss transferring my property in [district, state] ([sale/gift/inheritance/partition])."
           source="land-transfer-hero"
+          className="w-full sm:w-auto"
         >
           Discuss My Property Transfer
         </WhatsAppButton>
-        <Link href="/transfer-readiness" className="btn btn-outline">
+        <Link href="/transfer-readiness" className="btn btn-outline w-full sm:w-auto">
           Free Transfer Readiness Check
         </Link>
       </div>

@@ -55,9 +55,9 @@ export function InspectionReportCard({ compact = false }: { compact?: boolean })
         </div>
         <dl className="mt-4 grid gap-x-6 gap-y-2 text-sm sm:grid-cols-2 lg:grid-cols-3">
           {meta.map(([k, v]) => (
-            <div key={k} className="flex gap-2">
+            <div key={k} className="grid min-w-0 grid-cols-[auto_1fr] gap-2">
               <dt className="text-ink-2">{k}:</dt>
-              <dd className="text-ink">{v}</dd>
+              <dd className="min-w-0 text-ink">{v}</dd>
             </div>
           ))}
         </dl>

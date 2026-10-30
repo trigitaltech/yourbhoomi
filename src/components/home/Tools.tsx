@@ -31,7 +31,7 @@ const checks = ["Last physical inspection", "Boundary and fencing", "Mutation an
 export function RiskCheckTeaser() {
   return (
     <section className="container section" aria-labelledby="risk-heading">
-      <div className="card grid gap-8 border-stamp/30 p-8 md:grid-cols-[1.2fr_1fr] md:p-10">
+      <div className="card grid gap-8 border-stamp/30 p-5 sm:p-8 md:grid-cols-[1.2fr_1fr] md:p-10">
         <div>
           <p className="eyebrow">Free Land Risk Check</p>
           <h2 id="risk-heading" className="mt-3 text-2xl">
@@ -41,11 +41,11 @@ export function RiskCheckTeaser() {
             Answer twelve quick questions and receive a Land Security Score with three to five plain
             recommendations. Two minutes, no sign-up.
           </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/land-risk-check" className="btn btn-primary">
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Link href="/land-risk-check" className="btn btn-primary w-full sm:w-auto">
               Start the Land Risk Check
             </Link>
-            <Link href="/transfer-readiness" className="btn btn-outline">
+            <Link href="/transfer-readiness" className="btn btn-outline w-full sm:w-auto">
               Transfer Readiness Check
             </Link>
           </div>
@@ -103,7 +103,7 @@ export function PricingTeaser() {
       <h2 id="pricing-heading" className="mt-3 text-2xl">
         Simple plans for land security. Transfers quoted per case.
       </h2>
-      <div className="mt-8 grid gap-4 md:grid-cols-3">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {plans.map((p) => (
           <div key={p.name} className="card p-5">
             <h3 className="font-semibold text-stamp">{p.name}</h3>

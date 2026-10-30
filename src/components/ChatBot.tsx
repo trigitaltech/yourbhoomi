@@ -28,10 +28,57 @@ export function ChatBot() {
   const [err, setErr] = useState("");
   const lastQ = useRef("");
   const scroller = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const wasOpen = useRef(false);
 
   useEffect(() => {
     scroller.current?.scrollTo({ top: scroller.current.scrollHeight });
   }, [messages, askLead, open]);
+
+  useEffect(() => {
+    const inerted: HTMLElement[] = [];
+    if (open) {
+      document.documentElement.dataset.chatOpen = "1";
+      for (const child of document.body.children) {
+        const element = child as HTMLElement;
+        if (!element.contains(dialogRef.current)) {
+          element.inert = true;
+          inerted.push(element);
+        }
+      }
+      window.requestAnimationFrame(() => dialogRef.current?.focus());
+      wasOpen.current = true;
+    } else {
+      delete document.documentElement.dataset.chatOpen;
+      if (wasOpen.current) triggerRef.current?.focus();
+    }
+    return () => {
+      delete document.documentElement.dataset.chatOpen;
+      for (const element of inerted) element.inert = false;
+    };
+  }, [open]);
+
+  function handleDialogKeyDown(e: React.KeyboardEvent<HTMLDivElement>) {
+    if (e.key === "Escape") {
+      setOpen(false);
+      return;
+    }
+    if (e.key !== "Tab" || !dialogRef.current) return;
+    const focusable = dialogRef.current.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    );
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && (document.activeElement === last || document.activeElement === dialogRef.current)) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
 
   async function ask(text: string) {
     const q = text.trim();
@@ -96,11 +143,12 @@ export function ChatBot() {
   return (
     <>
       <button
+        ref={triggerRef}
         type="button"
         aria-expanded={open}
         aria-controls="faq-chat"
         onClick={() => setOpen((v) => !v)}
-        className="chat-fab fixed right-20 bottom-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-stamp text-white shadow-card hover:bg-stamp-hover sm:right-24 sm:bottom-6"
+        className={`chat-fab fixed right-20 bottom-[max(1rem,env(safe-area-inset-bottom))] z-50 flex h-14 w-14 items-center justify-center rounded-full bg-stamp text-white shadow-card hover:bg-stamp-hover sm:right-24 sm:bottom-[max(1.5rem,env(safe-area-inset-bottom))] ${open ? "pointer-events-none opacity-0" : ""}`}
         aria-label={open ? "Close FAQ chat" : "Open FAQ chat"}
       >
         {open ? (
@@ -114,13 +162,32 @@ export function ChatBot() {
 
       {open && (
         <div
+          ref={dialogRef}
           id="faq-chat"
           role="dialog"
+          aria-modal="true"
           aria-label="Your Bhoomi FAQ chat"
-          className="card fixed right-4 bottom-24 z-50 flex h-[min(32rem,70vh)] w-[min(22rem,calc(100vw-2rem))] flex-col overflow-hidden shadow-card sm:right-6 sm:bottom-28"
+          tabIndex={-1}
+          onKeyDown={handleDialogKeyDown}
+          className="chat-panel card fixed right-4 bottom-[calc(5.5rem+env(safe-area-inset-bottom))] z-50 flex h-[min(32rem,calc(100dvh-7rem))] w-[min(22rem,calc(100vw-2rem))] flex-col overflow-hidden shadow-card sm:right-6 sm:bottom-[calc(6.5rem+env(safe-area-inset-bottom))]"
         >
-          <div className="bg-stamp px-4 py-3 text-sm font-semibold text-white">Ask Your Bhoomi</div>
-          <div ref={scroller} className="flex-1 space-y-3 overflow-y-auto p-3">
+          <div className="flex items-center justify-between gap-3 bg-stamp px-4 py-2 text-sm font-semibold text-white">
+            <span>Ask Your Bhoomi</span>
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              className="flex h-10 w-10 items-center justify-center rounded-full text-2xl leading-none hover:bg-white/15"
+              aria-label="Close FAQ chat"
+            >
+              ×
+            </button>
+          </div>
+          <div
+            ref={scroller}
+            className="flex-1 space-y-3 overflow-y-auto p-3"
+            aria-live="polite"
+            aria-relevant="additions text"
+          >
             {messages.map((m, i) => (
               <div
                 key={i}
@@ -179,6 +246,7 @@ export function ChatBot() {
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Full name"
                   className="field"
+                  aria-label="Full name"
                   autoComplete="name"
                 />
                 <input
@@ -189,9 +257,10 @@ export function ChatBot() {
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="WhatsApp number"
                   className="field"
+                  aria-label="WhatsApp number"
                   autoComplete="tel"
                 />
-                {err && <p className="text-xs text-seal">{err}</p>}
+                {err && <p role="alert" className="text-xs text-seal">{err}</p>}
                 <LegalConsent />
                 <button type="submit" className="btn btn-primary" disabled={busy}>
                   Send to advisor

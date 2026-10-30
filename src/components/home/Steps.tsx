@@ -118,7 +118,7 @@ export function Steps() {
 
         {/* Desktop Process Rail Line */}
         <div className="relative mt-14">
-          <div className="absolute top-1/2 left-8 right-8 hidden h-1 -translate-y-1/2 bg-rule lg:block" aria-hidden="true">
+          <div className="absolute top-1/2 left-8 right-8 hidden h-1 -translate-y-1/2 bg-rule xl:block" aria-hidden="true">
             <div
               className="h-full bg-gradient-to-r from-stamp via-whatsapp to-stamp transition-all duration-500 animate-flow-rail rounded-full"
               style={{ width: `${((activeStep + 1) / stepsData.length) * 100}%` }}
@@ -126,7 +126,7 @@ export function Steps() {
           </div>
 
           {/* 4 Step Cards Grid */}
-          <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
             {stepsData.map((s, index) => {
               const isActive = activeStep === index;
 
@@ -134,11 +134,10 @@ export function Steps() {
                 <li
                   key={s.num}
                   onMouseEnter={() => setActiveStep(index)}
-                  onClick={() => setActiveStep(index)}
-                  className={`group relative flex flex-col justify-between rounded-2xl border transition-all duration-300 cursor-pointer ${
+                  className={`process-card group relative flex flex-col justify-between rounded-2xl border transition-all duration-300 ${
                     isActive
-                      ? "border-stamp bg-paper-2 shadow-card -translate-y-2 ring-2 ring-stamp/20"
-                      : "border-rule bg-paper-2/80 hover:border-stamp/60 hover:bg-paper-2 hover:-translate-y-1 hover:shadow-sm"
+                      ? "border-stamp bg-paper-2 shadow-card ring-2 ring-stamp/20 lg:-translate-y-2"
+                      : "border-rule bg-paper-2/80 hover:border-stamp/60 hover:bg-paper-2 hover:shadow-sm lg:hover:-translate-y-1"
                   }`}
                 >
                   {/* Top Highlight Accent Bar */}
@@ -151,7 +150,7 @@ export function Steps() {
                   <div className="p-6">
                     {/* Header Row: Badge & Step Number */}
                     <div className="flex items-center justify-between">
-                      <span className="rounded-md bg-stamp-soft px-2.5 py-1 text-[11px] font-semibold text-stamp">
+                      <span className="rounded-md bg-stamp-soft px-2.5 py-1 text-xs font-semibold text-stamp">
                         {s.badge}
                       </span>
                       <span
@@ -179,12 +178,12 @@ export function Steps() {
                     </div>
 
                     {/* Description */}
-                    <p className="mt-4 text-xs leading-relaxed text-ink-2">{s.body}</p>
+                    <p className="mt-4 text-sm leading-relaxed text-ink-2">{s.body}</p>
 
                     {/* Bullet Highlights */}
                     <ul className="mt-4 space-y-1.5 border-t border-rule/60 pt-3">
                       {s.details.map((d) => (
-                        <li key={d} className="flex items-center gap-2 text-[11px] font-medium text-ink">
+                        <li key={d} className="flex items-center gap-2 text-xs font-medium text-ink">
                           <span className="h-1.5 w-1.5 rounded-full bg-stamp shrink-0" />
                           {d}
                         </li>
@@ -193,9 +192,14 @@ export function Steps() {
                   </div>
 
                   {/* Card Footer Badge */}
-                  <div className="mx-6 mb-6 rounded-lg bg-paper border border-rule p-2.5 text-center text-[11px] font-semibold text-stamp">
+                  <button
+                    type="button"
+                    aria-pressed={isActive}
+                    onClick={() => setActiveStep(index)}
+                    className="mx-6 mb-6 min-h-11 rounded-lg border border-rule bg-paper p-2.5 text-center text-xs font-semibold text-stamp hover:border-stamp hover:bg-stamp-soft"
+                  >
                     {s.highlight}
-                  </div>
+                  </button>
                 </li>
               );
             })}
@@ -222,15 +226,15 @@ export function Steps() {
               </div>
             </div>
 
-            <div className="flex shrink-0 items-center gap-3">
+            <div className="flex w-full flex-col gap-3 sm:flex-row md:w-auto md:flex-wrap">
               <WhatsAppButton
                 message={`Hi Your Bhoomi team, I'd like to get started with Step 1 (${stepsData[activeStep].title}) for my property.`}
                 source="how_it_works_section"
-                className="btn btn-whatsapp text-xs font-semibold px-5 py-3 shadow-sm hover:shadow"
+                className="w-full px-5 py-3 text-xs font-semibold shadow-sm hover:shadow sm:w-auto"
               >
                 Start Step 1 on WhatsApp
               </WhatsAppButton>
-              <Link href="/coverage" className="btn btn-outline text-xs px-4 py-3">
+              <Link href="/coverage" className="btn btn-outline w-full px-4 py-3 text-xs sm:w-auto">
                 Check District Coverage
               </Link>
             </div>

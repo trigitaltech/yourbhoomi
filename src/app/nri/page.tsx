@@ -46,11 +46,11 @@ export default function NriPage() {
           everything your property needs — visits, repairs, records, and
           transfer — explained in the language your family actually speaks.
         </p>
-        <div className="mt-8 flex flex-wrap gap-4">
-          <WhatsAppButton message="Hi, I'm an NRI. I'd like to set up property care for my land in India.">
+        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+          <WhatsAppButton className="w-full sm:w-auto" message="Hi, I'm an NRI. I'd like to set up property care for my land in India.">
             Start on WhatsApp
           </WhatsAppButton>
-          <Link href="/#contact" className="btn btn-outline">
+          <Link href="/#contact" className="btn btn-outline w-full sm:w-auto">
             Leave my details
           </Link>
         </div>
@@ -76,7 +76,7 @@ export default function NriPage() {
             <h2 className="text-2xl">Advisor hours in your time zone</h2>
             <dl className="mt-6 divide-y divide-rule border-y border-rule">
               {zones.map((z) => (
-                <div key={z.zone} className="flex justify-between py-3 text-sm">
+                <div key={z.zone} className="flex flex-col gap-1 py-3 text-sm sm:flex-row sm:justify-between sm:gap-4">
                   <dt className="font-medium text-ink">{z.zone}</dt>
                   <dd className="text-ink-2">{z.slot}</dd>
                 </div>
