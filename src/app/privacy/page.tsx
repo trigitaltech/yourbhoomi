@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 
+const LEGAL_EMAIL = "hello@yourbhoomi.com";
+const LEGAL_PHONE = "+91 70138 70575";
+const LEGAL_PHONE_HREF = "tel:+917013870575";
+
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
@@ -10,9 +14,6 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacyPage() {
-  const email = "hello@yourbhoomi.com";
-  const phone = "+91 70138 70575";
-
   return (
     <div className="container section max-w-3xl">
       <Breadcrumbs
@@ -46,12 +47,12 @@ export default function PrivacyPage() {
           <p className="mt-3">
             Your Bhoomi is responsible for the personal information we process to
             operate these services. Contact us at{" "}
-            <a href={`mailto:${email}`} className="text-stamp underline">
-              {email}
+            <a href={`mailto:${LEGAL_EMAIL}`} className="text-stamp underline">
+              {LEGAL_EMAIL}
             </a>
             {" "}or{" "}
-            <a href="tel:+917013870575" className="text-stamp underline">
-              {phone}
+            <a href={LEGAL_PHONE_HREF} className="text-stamp underline">
+              {LEGAL_PHONE}
             </a>
             . Our desk is in Banjara Hills, Hyderabad, Telangana, India.
           </p>
@@ -333,8 +334,8 @@ export default function PrivacyPage() {
           </p>
           <p className="mt-3">
             You can also request deletion without reinstalling the app by emailing{" "}
-            <a href={`mailto:${email}`} className="text-stamp underline">
-              {email}
+            <a href={`mailto:${LEGAL_EMAIL}`} className="text-stamp underline">
+              {LEGAL_EMAIL}
             </a>{" "}
             with the subject &quot;Your Bhoomi Account Deletion Request&quot;.
             Include the email address associated with your account. If you cannot
@@ -405,8 +406,8 @@ export default function PrivacyPage() {
           </p>
           <p className="mt-3">
             For privacy concerns or grievances, email{" "}
-            <a href={`mailto:${email}`} className="text-stamp underline">
-              {email}
+            <a href={`mailto:${LEGAL_EMAIL}`} className="text-stamp underline">
+              {LEGAL_EMAIL}
             </a>{" "}
             with the subject &quot;Privacy Request&quot; or &quot;Privacy
             Grievance&quot;. We aim to respond within 30 days, subject to any
@@ -442,12 +443,12 @@ export default function PrivacyPage() {
               https://www.yourbhoomi.com/privacy
             </Link>
             . For questions, contact Your Bhoomi at{" "}
-            <a href={`mailto:${email}`} className="text-stamp underline">
-              {email}
+            <a href={`mailto:${LEGAL_EMAIL}`} className="text-stamp underline">
+              {LEGAL_EMAIL}
             </a>
             ,{" "}
-            <a href="tel:+917013870575" className="text-stamp underline">
-              {phone}
+            <a href={LEGAL_PHONE_HREF} className="text-stamp underline">
+              {LEGAL_PHONE}
             </a>
             , Banjara Hills, Hyderabad, Telangana, India.
           </p>

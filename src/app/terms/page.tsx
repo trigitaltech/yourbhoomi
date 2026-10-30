@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 
+const LEGAL_EMAIL = "hello@yourbhoomi.com";
+const LEGAL_PHONE = "+91 70138 70575";
+const LEGAL_PHONE_HREF = "tel:+917013870575";
+
 export const metadata: Metadata = {
   title: "Terms and Conditions",
   description:
@@ -10,9 +14,6 @@ export const metadata: Metadata = {
 };
 
 export default function TermsPage() {
-  const email = "hello@yourbhoomi.com";
-  const phone = "+91 70138 70575";
-
   return (
     <div className="container section max-w-3xl">
       <Breadcrumbs
@@ -64,13 +65,13 @@ export default function TermsPage() {
           </p>
           <p className="mt-3">
             Email:{" "}
-            <a href={`mailto:${email}`} className="text-stamp underline">
-              {email}
+            <a href={`mailto:${LEGAL_EMAIL}`} className="text-stamp underline">
+              {LEGAL_EMAIL}
             </a>
             <br />
             Telephone:{" "}
-            <a href="tel:+917013870575" className="text-stamp underline">
-              {phone}
+            <a href={LEGAL_PHONE_HREF} className="text-stamp underline">
+              {LEGAL_PHONE}
             </a>
           </p>
         </section>
@@ -339,8 +340,8 @@ export default function TermsPage() {
           <p className="mt-3">
             You may also request account deletion without using or reinstalling the
             app by emailing{" "}
-            <a href={`mailto:${email}`} className="text-stamp underline">
-              {email}
+            <a href={`mailto:${LEGAL_EMAIL}`} className="text-stamp underline">
+              {LEGAL_EMAIL}
             </a>{" "}
             with the subject &quot;Your Bhoomi Account Deletion Request.&quot; Use
             your registered email address where possible. We may reasonably verify
@@ -486,8 +487,8 @@ export default function TermsPage() {
             To report inaccurate listings, unauthorised content, privacy concerns
             or other problems, use the relevant in-app reporting option where
             available or email{" "}
-            <a href={`mailto:${email}`} className="text-stamp underline">
-              {email}
+            <a href={`mailto:${LEGAL_EMAIL}`} className="text-stamp underline">
+              {LEGAL_EMAIL}
             </a>
             .
           </p>
@@ -561,13 +562,13 @@ export default function TermsPage() {
             Banjara Hills, Hyderabad, India
             <br />
             Email:{" "}
-            <a href={`mailto:${email}`} className="text-stamp underline">
-              {email}
+            <a href={`mailto:${LEGAL_EMAIL}`} className="text-stamp underline">
+              {LEGAL_EMAIL}
             </a>
             <br />
             Telephone:{" "}
-            <a href="tel:+917013870575" className="text-stamp underline">
-              {phone}
+            <a href={LEGAL_PHONE_HREF} className="text-stamp underline">
+              {LEGAL_PHONE}
             </a>
           </address>
         </section>
