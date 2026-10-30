@@ -39,6 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/contact", 0.8),
     page("/privacy", 0.3),
     page("/terms", 0.3),
+    page("/delete-account", 0.3),
     page("/cookies", 0.3),
     ...services.map((s) => page(`/services/${s.slug}`, 0.8)),
     ...guides.map((g) => page(`/guides/${g.slug}`, 0.7)),

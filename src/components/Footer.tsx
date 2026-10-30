@@ -40,6 +40,7 @@ const cols = [
     title: "Legal",
     links: [
       { href: "/terms", label: "Terms and Conditions" },
+      { href: "/delete-account", label: "Delete Account" },
       { href: "/privacy", label: "Privacy Policy" },
       { href: "/cookies", label: "Cookie Policy" },
       { href: "/terms#disclaimer", label: "Disclaimer" },
@@ -96,12 +97,15 @@ export function Footer() {
             informational — not legal opinions or title certification. Guides are general
             information, not legal or tax advice.
           </p>
-          <nav aria-label="Legal" className="flex flex-wrap justify-center gap-x-4 gap-y-1">
+          <nav aria-label="Legal and account" className="flex flex-wrap justify-center gap-x-4 gap-y-1">
             <Link href="/privacy" className="hover:text-stamp">
               Privacy Policy
             </Link>
             <Link href="/terms" className="hover:text-stamp">
               Terms and Conditions
+            </Link>
+            <Link href="/delete-account" className="hover:text-stamp">
+              Delete Account
             </Link>
             <Link href="/cookies" className="hover:text-stamp">
               Cookie Policy
