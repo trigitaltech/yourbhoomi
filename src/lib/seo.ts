@@ -25,6 +25,9 @@ export const seo = {
     "Power of Attorney property India",
     "encroachment vacant land",
     "NRI property tax compliance",
+    "real estate agent app Hyderabad",
+    "property CRM for agents Telugu",
+    "agent to agent collaboration real estate",
   ],
 };
 
@@ -112,6 +115,7 @@ export function siteNavigationNode() {
     { name: "NRI Desk", url: `${site.url}/nri` },
     { name: "Tools", url: `${site.url}/land-risk-check` },
     { name: "Pricing", url: `${site.url}/pricing` },
+    { name: "For Agents", url: `${site.url}/agents` },
     { name: "Guides", url: `${site.url}/guides` },
     { name: "FAQ", url: `${site.url}/faq` },
     { name: "Glossary", url: `${site.url}/glossary` },

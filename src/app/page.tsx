@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AgentsTeaser } from "@/components/home/AgentsTeaser";
 import { BeforeAfter } from "@/components/home/BeforeAfter";
 import { CtaBand } from "@/components/home/CtaBand";
 import { Faq } from "@/components/home/Faq";
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 // Section order follows the growth spec: hero → trust → two services → sample report → risk check
-// → how it works → before/after → coverage → representative → NRI → testimonials → pricing → FAQ → final CTA.
+// → how it works → before/after → coverage → representative → NRI → agents app → testimonials → pricing → FAQ → final CTA.
 export default function Home() {
   return (
     <>
@@ -39,6 +40,7 @@ export default function Home() {
       <CoverageSection />
       <YourMan />
       <NriDesk />
+      <AgentsTeaser />
       <Testimonials />
       <PricingTeaser />
       <Faq />

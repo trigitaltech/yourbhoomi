@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ...c.intents.map((i) => page(`/nri/${c.slug}/${i.key}`, 0.85)),
     ]),
     page("/pricing", 0.8),
+    page("/agents", 0.85, "weekly"),
     page("/compare", 0.7),
     page("/faq", 0.8, "weekly"),
     page("/glossary", 0.7),

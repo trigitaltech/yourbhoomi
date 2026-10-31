@@ -11,7 +11,7 @@ const intro = `# ${site.name}
 
 > ${site.name} is an NRI property desk in Banjara Hills, Hyderabad, India. We are the trusted local partner for families living abroad who need someone to watch, manage, transfer, and keep ancestral land and homes in India compliant — then report back on WhatsApp in plain language.
 
-${site.name} is not a listing portal. A named, Aadhaar-verified local person stands in for the owner on the plot, at the Tahsildar / MRO office, at MeeSeva, at GHMC, and at the Sub-Registrar office. Live services: Watch, Manage, Transfer (Transact), Comply. Buy, Sell, and Rent desks are launching in phases.
+${site.name} is not a listing portal. A named, Aadhaar-verified local person stands in for the owner on the plot, at the Tahsildar / MRO office, at MeeSeva, at GHMC, and at the Sub-Registrar office. Live services: Watch, Manage, Transfer (Transact), Comply. Buy, Sell, and Rent desks are launching in phases. A separate Agents App — an AI-powered business assistant for Hyderabad real estate agents (private leads, AI property matching, agent-to-agent collaboration with recorded commission splits, WhatsApp property cards, Telugu/Hindi/English) — is in early access.
 
 Contact: WhatsApp https://wa.me/${site.whatsapp} · ${site.email} · ${site.phone} · ${u("/contact")}
 Coverage: Telangana (Hyderabad — Rangareddy, Medchal–Malkajgiri, Sangareddy, Nalgonda, Siddipet, Warangal, Medak), coastal Andhra Pradesh (Guntur–Vijayawada), Tamil Nadu (Coimbatore, Nilgiris), Karnataka (Mysuru). Families served in the US, UK, UAE, Singapore, Australia, Canada.
@@ -34,6 +34,7 @@ ${cities.map((c) => `- [${c.name} desk](${u(`/nri/${c.slug}`)}): ${c.description
 ${services.map((s) => `- [${s.name}](${u(`/services/${s.slug}`)}): ${s.seoDescription}`).join("\n")}
 - [Pricing](${u("/pricing")}): One-Time Security Check, Bhoomi Watch, Bhoomi Protect+ and land transfer from ₹15,000 (indicative)
 - [Compare](${u("/compare")}): Your Bhoomi vs NoBroker vs relative vs DIY
+- [For Agents](${u("/agents")}): Agents App for Hyderabad real estate agents — 7 USPs, agent-to-agent collaboration flow, launch roadmap, early-access waitlist
 - [FAQ](${u("/faq")}): ${faqs.length} direct answers
 - [Glossary](${u("/glossary")}): ${glossary.length} land-record and NRI property terms
 - [About](${u("/about")}), [Contact](${u("/contact")}), [Privacy](${u("/privacy")}), [Terms](${u("/terms")})

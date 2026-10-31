@@ -43,6 +43,11 @@ export const comingSoonFeatures = {
     headline: "Rent out your house or lease your land — managed end to end.",
     body: "Tenant KYC, registered agreements, rent collection to your NRO account, and seasonal leasing for farmland are on the way.",
   },
+  agents: {
+    label: "Agents App",
+    headline: "Your Leads. Your Properties. More Deals.",
+    body: "An AI-powered business assistant for Hyderabad real estate agents: private leads, AI property matching, agent-to-agent collaboration with recorded commission splits, and one-tap WhatsApp property cards.",
+  },
 } as const;
 
 export type FeatureKey = keyof typeof comingSoonFeatures;

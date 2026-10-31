@@ -50,6 +50,7 @@ export const megaNav: NavItem[] = [
           { href: "/coming-soon?for=buy", label: "Buy", blurb: "Verified listings with a site visit" },
           { href: "/coming-soon?for=sell", label: "Sell", blurb: "From abroad, without every flight" },
           { href: "/coming-soon?for=rent", label: "Rent & land", blurb: "Tenants and seasonal leases" },
+          { href: "/agents", label: "Agents App", blurb: "AI matching, private leads, agent collaboration" },
         ],
       },
     ],
@@ -138,6 +139,7 @@ export const megaNav: NavItem[] = [
     },
   },
   { kind: "link", id: "pricing", label: "Pricing", href: "/pricing" },
+  { kind: "link", id: "agents", label: "For Agents", href: "/agents" },
   {
     kind: "mega",
     id: "resources",
@@ -188,6 +190,7 @@ export const searchSuggestions = [
   { href: "/guides/mutation-and-record-of-rights", label: "Mutation" },
   { href: "/coverage", label: "Coverage" },
   { href: "/pricing", label: "Pricing" },
+  { href: "/agents", label: "Agents App" },
   { href: "/glossary", label: "Glossary" },
 ];
 
@@ -195,6 +198,7 @@ export const heroJumps = [
   { href: "#services", label: "What's included" },
   { href: "#how", label: "How it works" },
   { href: "#coverage", label: "Coverage" },
+  { href: "#agents", label: "For agents" },
   { href: "#pricing", label: "Plans & pricing" },
   { href: "#faq", label: "FAQs" },
 ];

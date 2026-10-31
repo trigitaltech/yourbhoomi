@@ -34,6 +34,7 @@ const cols = [
       { href: "/compare", label: "Compare" },
       { href: "/faq", label: "FAQ" },
       { href: comingSoonHref("buy"), label: "Buy · Sell · Rent (coming soon)" },
+      { href: "/agents", label: "Agents App (early access)" },
     ],
   },
   {

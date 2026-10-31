@@ -25,6 +25,7 @@ const pages: SearchHit[] = [
   { href: "/sample-report", title: "Sample Security Report", blurb: "What every Bhoomi Security Report contains.", kind: "Tool" },
   { href: "/nri-checklist", title: "NRI Land Protection Checklist", blurb: "25 checks every NRI landowner should perform.", kind: "Tool" },
   { href: "/compare", title: "Compare", blurb: "Your Bhoomi vs NoBroker vs relative vs DIY.", kind: "Page" },
+  { href: "/agents", title: "Agents App", blurb: "AI-powered business assistant for Hyderabad real estate agents: private leads, AI matching, agent collaboration, WhatsApp sharing.", kind: "Page" },
   { href: "/faq", title: "FAQ", blurb: "Direct answers about visits, cost, POA, and coverage.", kind: "Page" },
   { href: "/glossary", title: "Glossary", blurb: "Pahani, mutation, EC, POA, TDS, FEMA — one paragraph each.", kind: "Page" },
   { href: "/guides", title: "Guides", blurb: "Plain-language NRI guides on owning and transferring land in India.", kind: "Page" },
