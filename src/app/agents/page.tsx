@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { FaqList } from "@/components/FaqList";
@@ -56,23 +57,38 @@ export default function AgentsPage() {
       <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "For Agents", path: "/agents" }]} />
 
       {/* Hero */}
-      <p className="eyebrow mt-6">{agentsHero.eyebrow}</p>
-      <h1 className="mt-3 max-w-3xl text-3xl">{agentsHero.h1}</h1>
-      <p className="mt-4 max-w-2xl text-lg text-ink-2">{agentsHero.body}</p>
-      <div className="mt-6 max-w-2xl rounded-2xl bg-stamp-soft p-5">
-        <p className="text-base font-semibold text-stamp sm:text-lg" lang="te-Latn">
-          &ldquo;{agentsHero.teluguLine}&rdquo;
-        </p>
-        <p className="mt-1 text-sm text-ink-2">{agentsHero.teluguMeaning}</p>
-      </div>
-      <p className="mt-5 max-w-2xl text-sm text-ink-2">{agentsHero.positioning}</p>
-      <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-        <Link href="#waitlist" className="btn btn-primary w-full sm:w-auto">
-          Get early access
-        </Link>
-        <WhatsAppButton message={whatsappMessage} source="agents-hero" className="w-full sm:w-auto">
-          Ask on WhatsApp
-        </WhatsAppButton>
+      <div className="mt-6 grid items-center gap-10 lg:grid-cols-[1.2fr_1fr]">
+        <div>
+          <p className="eyebrow">{agentsHero.eyebrow}</p>
+          <h1 className="mt-3 max-w-3xl text-3xl">{agentsHero.h1}</h1>
+          <p className="mt-4 max-w-2xl text-lg text-ink-2">{agentsHero.body}</p>
+          <div className="mt-6 max-w-2xl rounded-2xl bg-stamp-soft p-5">
+            <p className="text-base font-semibold text-stamp sm:text-lg" lang="te-Latn">
+              &ldquo;{agentsHero.teluguLine}&rdquo;
+            </p>
+            <p className="mt-1 text-sm text-ink-2">{agentsHero.teluguMeaning}</p>
+          </div>
+          <p className="mt-5 max-w-2xl text-sm text-ink-2">{agentsHero.positioning}</p>
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+            <Link href="#waitlist" className="btn btn-primary w-full sm:w-auto">
+              Get early access
+            </Link>
+            <WhatsAppButton message={whatsappMessage} source="agents-hero" className="w-full sm:w-auto">
+              Ask on WhatsApp
+            </WhatsAppButton>
+          </div>
+        </div>
+        <div className="mx-auto w-full max-w-xs lg:max-w-sm">
+          <Image
+            src="/images/agents-app-phone.jpg"
+            alt="Your Bhoomi Agents App on a phone showing Buyers, Sellers, Matchmaking and Agent Partnership tiles and a matched 3 BHK listing in Madhapur"
+            width={864}
+            height={1152}
+            priority
+            className="h-auto w-full"
+            sizes="(max-width: 1024px) 320px, 384px"
+          />
+        </div>
       </div>
 
       {/* Story */}
